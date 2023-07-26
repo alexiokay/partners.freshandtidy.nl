@@ -5,6 +5,8 @@ NuxtLink.menu-button(:to="props.to" :class="isActive? 'bg-slate-100': ''" class=
         p {{ props.text }}
     div(v-if="props.notifications_count >= 0" :class="props.notifications_count > 0? 'moving-flag-bg': 'bg-slate-50'" class="h-full w-[2rem]  flex items-center justify-center rounded-md")
         p() {{props.notifications_count}}
+
+    slot(name="icon-2")
     .active-pointer(v-if="isActive" class="absolute -left-[1rem]  w-[0.65rem] h-11 bg-violet-600 rounded-r-md")
 
 </template>
