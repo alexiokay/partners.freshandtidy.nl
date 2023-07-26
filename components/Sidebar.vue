@@ -31,13 +31,31 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
             ButtonSidebar(text="Accounts" to="/dashboard/accounts" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                     AccountsIcon(class="w-6 h-6")
+           
             ButtonSidebar(text="Carriers" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" v-if="userStore.accountType === 'arrow-employee'")
                 template(v-slot:icon)
                     TruckIcon(class="w-6 h-6")
-            ButtonSidebar( text="Settings" to="/dashboard/settings" @click="is_sidebar_open = !is_sidebar_open" )
+            div(class="flex flex-col w-full ")
+              ButtonSidebar( text="Settings" to="/dashboard/settings" @click="is_sidebar_open = !is_sidebar_open" )
+                  template(v-slot:icon)
+                      SettingsIcon(class="w-6 h-6")
+                  template(v-slot:icon-2)
+                    ArrowIcon(@click.prevent="isMoreSettings = !isMoreSettings" :class="isMoreSettings? 'rotate-90': '-rotate-90'" class="w-8 h-8 ml-3 group-hover:text-[#2da9db]   " )
+              transition(name="submenu" @enter="enter" @leave="leave")
+                div(v-show="isMoreSettings" class="flex  w-full h-auto pl-[1rem] gap-y-2 py-2 rounded-b-md")
+                  .stick
+                  div(v-show="isMoreSettings" class="flex flex-col w-full h-auto pl-[1.5rem]")
+                    div(class="w-auto flex gap-x-2")
+                      AccountsIcon(class="w-5 h-5 ")
+                      p account 
+                    div(class="w-auto flex gap-x-2")
+                      PaymentsIcon(class="w-5 h-5 ")
+                      p payments 
+                    p dsadsa
+            ButtonSidebar(text="Carriers" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" v-if="userStore.accountType === 'arrow-employee'")
                 template(v-slot:icon)
-                    SettingsIcon(class="w-6 h-6")
-        
+                    TruckIcon(class="w-6 h-6")
+            
         button(class="w-[calc(100%-2rem)] mx-auto h-[3.3rem] px-4 py-2 bg-[#060c3a] text-white rounded-md hover:bg-violet-700 ")
             NuxtLink(to="/dashboard/timeslots") + Reserve Timeslot
         
@@ -45,6 +63,7 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
 </template>
 
 <script setup lang="ts">
+import PaymentsIcon from "~icons/fluent/payment-32-regular";
 import InfoIcon from "~icons/material-symbols/info-outline";
 import ShippingIcon from "~icons/material-symbols/local-shipping-outline-rounded";
 import TimeslotsIcon from "~icons/ic/round-access-time";
@@ -61,9 +80,50 @@ const userStore = useUserStore();
 const mainStore = useMainStore();
 // ------ is's ------ //
 const is_sidebar_open = ref(false);
+const isMoreSettings = ref(false);
+
+function enter(el, done) {
+  // Transition in
+  el.style.opacity = 0;
+  el.style.height = "0";
+
+  requestAnimationFrame(() => {
+    el.style.transition = "opacity 0.2s, height 0.2s";
+    el.style.opacity = "1";
+    el.style.height = "105px"; // Adjust the height you want the submenu to expand to
+
+    // Wait for the transition to finish
+    el.addEventListener("transitionend", done);
+  });
+}
+
+function leave(el, done) {
+  // Transition out
+  el.style.transition = "opacity 0.2s, height 0.2s";
+  el.style.opacity = "0";
+  el.style.height = "0";
+
+  // Wait for the transition to finish
+  el.addEventListener("transitionend", done);
+}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.stick {
+  width: 4px;
+  background-color: #000; /* Adjust the color as needed */
+  cursor: row-resize;
+  transition: height 0.2s ease;
+}
+
+.stick.resizable {
+  height: 60px; /* Set an initial height for the stick */
+}
+
+.stick.resizable:hover {
+  height: 100px; /* Adjust the height on hover */
+}
+
 .hide-left {
   animation: hide-left 0.5s ease-in-out forwards;
 
@@ -95,5 +155,19 @@ const is_sidebar_open = ref(false);
   to {
     transform: translateX(0rem);
   }
+}
+.submenu {
+  will-change: opacity, height;
+  overflow: hidden; /* Ensure content outside the height is hidden */
+  height: 0; /* Start with 0 height to hide the submenu initially */
+  opacity: 0; /* Start with 0 opacity to make it invisible */
+}
+
+.submenu-enter-active {
+  transition: opacity 0.2s ease, height 0.2s ease;
+}
+
+.submenu-leave-active {
+  transition: opacity 0.2s ease, height 0.2s ease;
 }
 </style>
