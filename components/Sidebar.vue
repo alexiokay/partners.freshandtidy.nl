@@ -25,36 +25,39 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
             ButtonSidebar(text="Dashboard" to="/dashboard" :notifications_count="0" @click="is_sidebar_open = !is_sidebar_open")
                 template(v-slot:icon)
                     DashboardIcon(class="w-6 h-6")
-            ButtonSidebar(text="Timeslots" to="/dashboard/timeslots" @click="is_sidebar_open = !is_sidebar_open" )
+          
+            ButtonSidebar(text="Schedules" to="/dashboard/accounts" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
-                    TimeslotsIcon(class="w-6 h-6")
-            ButtonSidebar(text="Accounts" to="/dashboard/accounts" @click="is_sidebar_open = !is_sidebar_open" )
+                  CalendarIcon(class="w-6 h-6")
+                    
+            ButtonSidebar(text="Subscriptions" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
-                    AccountsIcon(class="w-6 h-6")
-           
-            ButtonSidebar(text="Carriers" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" v-if="userStore.accountType === 'arrow-employee'")
+                  SubscriptionIcon(class="w-6 h-6")
+            ButtonSidebar(text="Calls" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
-                    TruckIcon(class="w-6 h-6")
+                  PhoneIcon(class="w-6 h-6")
+   
+
             div(class="flex flex-col w-full ")
               ButtonSidebar( text="Settings" to="/dashboard/settings" @click="is_sidebar_open = !is_sidebar_open" )
                   template(v-slot:icon)
                       SettingsIcon(class="w-6 h-6")
                   template(v-slot:icon-2)
-                    ArrowIcon(@click.prevent="isMoreSettings = !isMoreSettings" :class="isMoreSettings? 'rotate-90': '-rotate-90'" class="w-8 h-8 ml-3 group-hover:text-[#2da9db]   " )
+                    ArrowIcon(@click.stop.prevent="isMoreSettings = !isMoreSettings" :class="isMoreSettings? '  rotate-90': '-rotate-90'" class="w-8 h-8 ml-3 group-hover:text-[#2da9db]   " )
               transition(name="submenu" @enter="enter" @leave="leave")
-                div(v-show="isMoreSettings" class="flex  w-full h-auto pl-[1rem] gap-y-2 py-2 rounded-b-md")
+                div(v-show="isMoreSettings" class="flex  w-full h-auto pl-[1.4rem]  py-2 rounded-b-md")
                   .stick
-                  div(v-show="isMoreSettings" class="flex flex-col w-full h-auto pl-[1.5rem]")
-                    div(class="w-auto flex gap-x-2")
+                  div(v-show="isMoreSettings" class="flex flex-col w-full h-auto pl-[1.3rem] gap-y-2")
+                    div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2 hover:cursor-pointer")
                       AccountsIcon(class="w-5 h-5 ")
                       p account 
-                    div(class="w-auto flex gap-x-2")
+                    div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
                       PaymentsIcon(class="w-5 h-5 ")
                       p payments 
-                    p dsadsa
-            ButtonSidebar(text="Carriers" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" v-if="userStore.accountType === 'arrow-employee'")
-                template(v-slot:icon)
-                    TruckIcon(class="w-6 h-6")
+                    div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
+                      LockerIcon(class="w-5 h-5 ")
+                      p security
+            
             
         button(class="w-[calc(100%-2rem)] mx-auto h-[3.3rem] px-4 py-2 bg-[#060c3a] text-white rounded-md hover:bg-violet-700 ")
             NuxtLink(to="/dashboard/timeslots") + Reserve Timeslot
@@ -73,6 +76,10 @@ import ArrowIcon from "~icons/material-symbols/chevron-left-rounded";
 import DashboardIcon from "~icons/ant-design/home-outlined";
 import SettingsIcon from "~icons/material-symbols/settings";
 import TruckIcon from "~icons/ph/truck";
+import LockerIcon from "~icons/mdi/secure-outline";
+import PhoneIcon from "~icons/carbon/phone-voice-filled";
+import CalendarIcon from "~icons/mdi/calendar-week";
+import SubscriptionIcon from "~icons/fluent-mdl2/recurring-event";
 
 import { useMainStore } from "@/stores/Main";
 import { useUserStore } from "@/stores/User";
@@ -90,7 +97,7 @@ function enter(el, done) {
   requestAnimationFrame(() => {
     el.style.transition = "opacity 0.2s, height 0.2s";
     el.style.opacity = "1";
-    el.style.height = "105px"; // Adjust the height you want the submenu to expand to
+    el.style.height = "100px"; // Adjust the height you want the submenu to expand to
 
     // Wait for the transition to finish
     el.addEventListener("transitionend", done);
@@ -110,8 +117,8 @@ function leave(el, done) {
 
 <style lang="scss" scoped>
 .stick {
-  width: 4px;
-  background-color: #000; /* Adjust the color as needed */
+  width: 1px;
+  background-color: #6f6f6f; /* Adjust the color as needed */
   cursor: row-resize;
   transition: height 0.2s ease;
 }
