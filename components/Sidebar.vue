@@ -13,27 +13,34 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
     div#sidebar-content(class="relative w-full h-full flex flex-col justify-between items-start mt-4 space-y-5 rounded-md ")
         
         div(class="w-full h-auto flex flex-col  items-start  space-y-3 px-2 lg:px-4")
-            ButtonSidebar(to="/dashboard/shipments" text="Shipments" :notifications_count="mainStore.getNewReservations?.length" @click="is_sidebar_open = !is_sidebar_open" )
+            ButtonSidebar(text="Dashboard" to="/dashboard" :notifications_count="0" @click="is_sidebar_open = !is_sidebar_open")
                 template(v-slot:icon)
-                    ShippingIcon(class="w-6 h-6")
+                    DashboardIcon(class="w-6 h-6")
             //- ButtonSidebar(to="/dashboard/notifications" text="Notifications" :notifications_count="1" :is_active="false")
             //-     template(v-slot:icon)
             //-         NotificationIcon(class="w-6 h-6")
         hr(class="w-full  border-gray-300 " )
         div(class="w-full h-full scroll-smooth no-scrollbar  flex flex-col  items-start mt-4 space-y-3 px-2 lg:px-4")
+
             
-            ButtonSidebar(text="Dashboard" to="/dashboard" :notifications_count="0" @click="is_sidebar_open = !is_sidebar_open")
+            
+            
+
+            ButtonSidebar(text="Your Services" to="/services" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
-                    DashboardIcon(class="w-6 h-6")
+                  ServicesIcon(class="w-6 h-6")
           
-            ButtonSidebar(text="Schedules" to="/dashboard/accounts" @click="is_sidebar_open = !is_sidebar_open" )
-                template(v-slot:icon)
-                  CalendarIcon(class="w-6 h-6")
+            
                     
             ButtonSidebar(text="Subscriptions" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   SubscriptionIcon(class="w-6 h-6")
-            ButtonSidebar(text="Calls" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" )
+
+            ButtonSidebar(text="Schedules" to="/dashboard/accounts" @click="is_sidebar_open = !is_sidebar_open" )
+                template(v-slot:icon)
+                  CalendarIcon(class="w-6 h-6")
+
+            ButtonSidebar(text="Call Logs" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   PhoneIcon(class="w-6 h-6")
    
@@ -80,6 +87,7 @@ import LockerIcon from "~icons/mdi/secure-outline";
 import PhoneIcon from "~icons/carbon/phone-voice-filled";
 import CalendarIcon from "~icons/mdi/calendar-week";
 import SubscriptionIcon from "~icons/fluent-mdl2/recurring-event";
+import ServicesIcon from "~icons/material-symbols/cleaning-services";
 
 import { useMainStore } from "@/stores/Main";
 import { useUserStore } from "@/stores/User";

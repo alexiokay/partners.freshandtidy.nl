@@ -1,7 +1,7 @@
 <template lang="pug">
-div(class="h-[var(--topbar-height)] w-full bg-white shadow-lg ")
+div(class="h-[var(--topbar-height)] w-full bg-white shadow-lg px-8")
 
-  UserInfo( @mouseenter="necessaryStore.setUserDropdown(true)" @mouseleave="necessaryStore.setUserDropdown(false)" class="w-[8rem] ml-auto")
+  UserInfo( @mouseenter="necessaryStore.setUserDropdown(true)" @mouseleave="necessaryStore.setUserDropdown(false)" class="w-auto ml-auto")
   UserDropdown(v-if="necessaryStore.isUserDropdown" @mouseenter="necessaryStore.setUserDropdown(true)" @mouseleave="necessaryStore.setUserDropdown(false)" class="w-auto mr-auto fixed right-10 top-[4.5rem] ")
 </template>
 
