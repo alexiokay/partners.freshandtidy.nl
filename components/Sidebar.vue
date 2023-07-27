@@ -32,7 +32,7 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
           
             
                     
-            ButtonSidebar(text="Subscriptions" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" )
+            ButtonSidebar(text="Subscriptions" to="/" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   SubscriptionIcon(class="w-6 h-6")
 
@@ -40,7 +40,7 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
                 template(v-slot:icon)
                   CalendarIcon(class="w-6 h-6")
 
-            ButtonSidebar(text="Call Logs" to="/dashboard/carriers" @click="is_sidebar_open = !is_sidebar_open" )
+            ButtonSidebar(text="Call Logs" to="/" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   PhoneIcon(class="w-6 h-6")
    
