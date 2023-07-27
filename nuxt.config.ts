@@ -19,6 +19,7 @@ export default defineNuxtConfig({
         autoImports: ["defineStore", "acceptHMRUpdate", "useStore"],
       },
     ],
+    "nuxt-simple-sitemap",
     "@pinia-plugin-persistedstate/nuxt",
     "@intlify/nuxt3",
     "@nuxt/image-edge",
