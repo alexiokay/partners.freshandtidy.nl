@@ -1,6 +1,26 @@
 <template lang="pug">
-div(class="w-full flex px-10 h-auto  relative overflow-visible")
-    div(class="w-[30%] flex flex-wrap justify-center md:justify-between gap-y-[2.6rem] mt-[3rem] px-8 ")
+div(class="w-full flex flex-col px-10 h-auto  relative overflow-visible md:pt-[3rem]")
+    h1(class="w-full text-center text-5xl font-semibold") Your Services
+    div(class="flex w-full my-8 mt-12")
+        div.instant-booking(class="flex w-auto gap-x-4 px-8")
+            p(class="text-xl") Instant booking
+            Switch(
+                v-model="instantBooking"
+                :class="instantBooking ? 'bg-blue-600' : 'bg-gray-200'" 
+                class="relative inline-flex h-8 w-20 items-center rounded-full")
+                p(:class="instantBooking ? 'text-white left-3' : 'right-3'" class=" absolute text-lg  ") {{ instantBooking ? 'On' : 'Off' }}
+                span(class="sr-only") Enable notifications
+                span(
+                    :class="instantBooking ? 'translate-x-[3.3rem]' : 'translate-x-1'"
+                    class="inline-block h-6 w-6 transform rounded-full bg-white transition")
+        div.recurrence(class="flex w-auto gap-x-4 px-8 items-center")
+            p(class="text-xl")  Recurrence of service
+            button(class="text-xl  border-1 bg-black text-white rounded-full px-4 py-1") Recurrence
+            button(class="text-xl bg-black text-white rounded-full px-4 py-1") One time
+
+
+    div(class="w-full flex flex-wrap justify-center md:justify-between gap-y-[2.6rem] mt-[3rem] px-8 after:flex-auto gap-x-[1.3rem]  overflow-y-scroll max-h-[calc(100vh-24rem)]")
+        AddService
         Service(@click="isEditMode = !isEditMode" @select="selectMenu"  :selected="selected" title="HOUSE CLEANING" desc="We clean and care  for variety of hard surface flooring at many places of business.")
         Service(@select="selectMenu" title="KITCHEN CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-13.png")
         Service(@select="selectMenu"  title="FLOOR CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-23.png")
@@ -12,18 +32,11 @@ div(class="w-full flex px-10 h-auto  relative overflow-visible")
         Service(@select="selectMenu"  title="UPHOLSTERY CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-13.png")
         Service(@select="selectMenu"  title="GARDEN MAINTENANCE" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-13.png")
         Service(@select="selectMenu"  title="OVEN AND APPLIANCE CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business.")
-
+        
 
 
             
-    div(class="w-3/4 gap-y-4 flex flex-col text-lg bg-white h-full sticky self-auto top-[8.7rem] px-6 py-4 rounded-3xl shadow-[0_1px_60px_-15px_rgba(0,0,0,0.1)]")
-        div(class="flex gap-x-4 items-center")
-            p Allowed Services: 
-            .recurring(class="bg-[#2da9db] text-white px-2 py-1 rounded-md") Recurring
-            .one-time(class="bg-[#2da9db] text-white px-2 py-1 rounded-md") One Time
-        div.instant-booking(class="flex gap-x-4 items-center")
-            p Instant Booking: 
-            input(type="checkbox" name="" id="" class="w-6 h-6")
+   
           
 
     transition(:name="animationName")
@@ -34,9 +47,12 @@ div(class="w-full flex px-10 h-auto  relative overflow-visible")
 <script setup lang="ts">
 import { on } from "events";
 
+import { Switch } from "@headlessui/vue";
+
 const isEditMode = ref(false);
 const animationName = ref("");
 const selected = ref("house cleaning");
+const instantBooking = ref(false);
 // randomly generate 'down' or 'up' or left or right for the animation
 
 const selectMenu = (title: string) => {

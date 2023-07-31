@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   ],
 
   build: {
-    transpile: ["@headlessui/vue"],
+    transpile: ["@headlessui/vue", "@fawmi/vue-google-maps"],
   },
 
   content: {
@@ -88,12 +88,14 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
     TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
     TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
     TWILIO_SHORT_NAME: process.env.TWILIO_SHORT_NAME,
     TWILIO_PHONE_NUMBER: process.env.TWILIO_PHONE_NUMBER,
 
     public: {
+      test: "test",
       cwd: process.cwd(),
       BASE_URL: process.env.BASE_URL,
       API_TOKEN: process.env.API_TOKEN,

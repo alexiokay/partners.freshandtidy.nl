@@ -29,18 +29,39 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
             ButtonSidebar(text="Your Services" to="/services" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   ServicesIcon(class="w-6 h-6")
-          
+            ButtonSidebar(text="Locations" to="/locations" @click="is_sidebar_open = !is_sidebar_open" )
+                template(v-slot:icon)
+                  LocationsIcon(class="w-6 h-6")
             
                     
             ButtonSidebar(text="Subscriptions" to="/" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   SubscriptionIcon(class="w-6 h-6")
 
-            ButtonSidebar(text="Schedules" to="" @click="is_sidebar_open = !is_sidebar_open" )
-                template(v-slot:icon)
-                  CalendarIcon(class="w-6 h-6")
+            div(class="flex flex-col w-full ")
+              ButtonSidebar( text="Scheduling" to="/schedule" @click="is_sidebar_open = !is_sidebar_open" )
+                  template(v-slot:icon)
+                    CalendarIcon(class="w-6 h-6")
+                  template(v-slot:icon-2)
+                    ArrowIcon(@click.stop.prevent="isMoreSettings = !isMoreSettings" :class="isMoreSettings? '  rotate-90': '-rotate-90'" class="w-8 h-8 ml-3 group-hover:text-[#2da9db]   " )
+              transition(name="submenu" @enter="enter" @leave="leave")
+                div(v-show="isMoreSettings" class="flex  w-full h-auto pl-[1.4rem]  py-2 rounded-b-md")
+                  .stick
+                  div(v-show="isMoreSettings" class="flex flex-col w-full h-auto pl-[1.3rem] gap-y-2")
+                    div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
+                      ConfirmationIcon(class="w-5 h-5 ")
+                      p Initial Confirmation
+                    div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2 hover:cursor-pointer")
+                      NotificationIcon(class="w-5 h-5 ")
+                      p Reminders 
+                    div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
+                      CancellationIcon(class="w-5 h-5 ")
+                      p Cancellation 
+                    
 
-            ButtonSidebar(text="Call Logs" to="/" @click="is_sidebar_open = !is_sidebar_open" )
+                   
+
+            ButtonSidebar(text="Call Logs" to="/calls" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   PhoneIcon(class="w-6 h-6")
    
@@ -64,10 +85,11 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
                     div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
                       LockerIcon(class="w-5 h-5 ")
                       p security
+
+                    p Notifications
             
             
-        button(class="w-[calc(100%-2rem)] mx-auto h-[3.3rem] px-4 py-2 bg-[#060c3a] text-white rounded-md hover:bg-violet-700 ")
-            NuxtLink(to="/dashboard/timeslots") + Reserve Timeslot
+     
         
             
 </template>
@@ -88,6 +110,9 @@ import PhoneIcon from "~icons/carbon/phone-voice-filled";
 import CalendarIcon from "~icons/mdi/calendar-week";
 import SubscriptionIcon from "~icons/fluent-mdl2/recurring-event";
 import ServicesIcon from "~icons/material-symbols/cleaning-services";
+import LocationsIcon from "~icons/carbon/location";
+import CancellationIcon from "~icons/material-symbols/cancel-outline";
+import ConfirmationIcon from "~icons/line-md/confirm";
 
 import { useMainStore } from "@/stores/Main";
 import { useUserStore } from "@/stores/User";
