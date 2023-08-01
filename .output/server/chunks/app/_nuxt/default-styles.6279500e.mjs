@@ -1,0 +1,12 @@
+const Topbar_vue_vue_type_style_index_0_lang = ":root{--topbar-height:5rem}";
+
+const Sidebar_vue_vue_type_style_index_0_lang = ".menu-button .active-pointer{animation:slideIn .6s forwards}@keyframes slideIn{0%{transform:translateX(-2rem)}to{transform:translateX(-.6rem)}}.moving-flag-bg{animation:colorChange 2s infinite}@keyframes colorChange{0%{background:#f1f5f9}10%{background:#7c3aed;color:#fff}30%{background:#7c3aed;color:#fff}40%{background:#f1f5f9}to{background:#f1f5f9}}";
+
+const Sidebar_vue_vue_type_style_index_0_scoped_0b2f8f47_lang = ".stick[data-v-0b2f8f47]{background-color:#6f6f6f;cursor:row-resize;transition:height .2s ease;width:1px}.stick.resizable[data-v-0b2f8f47]{height:60px}.stick.resizable[data-v-0b2f8f47]:hover{height:100px}.hide-left[data-v-0b2f8f47]{animation:hide-left-0b2f8f47 .5s ease-in-out forwards}@media (min-width:1024px){.hide-left[data-v-0b2f8f47]{animation:none}}@keyframes hide-left-0b2f8f47{0%{transform:translateX(0)}to{transform:translateX(-100%)}}.show-right[data-v-0b2f8f47]{animation:show-right-0b2f8f47 .5s ease-in-out forwards}@media (min-width:1024px){.show-right[data-v-0b2f8f47]{animation:none}}@keyframes show-right-0b2f8f47{0%{transform:translateX(-25rem)}to{transform:translateX(0)}}.submenu[data-v-0b2f8f47]{height:0;opacity:0;overflow:hidden;will-change:opacity,height}.submenu-enter-active[data-v-0b2f8f47],.submenu-leave-active[data-v-0b2f8f47]{transition:opacity .2s ease,height .2s ease}";
+
+const default_vue_vue_type_style_index_0_lang = "*{scroll-snap-type:y mandatory}body{overflow-x:hidden}.app-container{display:flex;flex-direction:column;justify-content:center;z-index:10}.panel{margin:0 auto;scroll-snap-align:center;text-align:center;width:90%}.panel p.title{align-self:center;font-size:5vh;font-style:normal;letter-spacing:.18em;line-height:0%}.cursor{left:0;pointer-events:none;position:fixed;top:0}.cursor--small{background:var(--color-text);border-radius:50%;height:5px;left:-2.5px;top:-2.5px;width:5px;z-index:11000}.cursor--canvas{height:100vh;width:100vw;z-index:12000}.hidden-overlay{opacity:0;visibility:hidden}.visible-overlay{opacity:.4;visibility:visible}";
+
+const defaultStyles_6279500e = [Topbar_vue_vue_type_style_index_0_lang, Sidebar_vue_vue_type_style_index_0_lang, Sidebar_vue_vue_type_style_index_0_scoped_0b2f8f47_lang, default_vue_vue_type_style_index_0_lang, default_vue_vue_type_style_index_0_lang];
+
+export { defaultStyles_6279500e as default };
+//# sourceMappingURL=default-styles.6279500e.mjs.map
