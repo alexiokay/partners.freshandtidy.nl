@@ -45,7 +45,7 @@ export default defineNuxtConfig({
     // Static page generated on-demand, revalidates in background (ISG)
 
     "/**": { ssr: true },
-    "/cart": { ssr: false },
+
     // Static page generated on-demand once (SSG - or at least mighty close) { static: true },
 
     // Render these routes on the client (SPA) { ssr: false },
