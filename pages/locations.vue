@@ -117,9 +117,9 @@ const initMap = () => {
 };
 
 // use fetch to get getLocalizations
-const tempProvinces = await getLocalizations(token);
-selectedProvinces.value = tempProvinces;
-console.log(selectedProvinces.value);
+// const tempProvinces = await getLocalizations(token);
+// selectedProvinces.value = tempProvinces;
+// console.log(selectedProvinces.value);
 
 // Function to handle the region click event
 function handleRegionClick(clickedFeature, layer) {
@@ -194,7 +194,7 @@ onMounted(() => {
         // If the region is not selected, reset the style to the default
         netherlandsLayer.resetStyle(layer);
       }
-    }); // end of netherlandsLayer.eachLayer
+    });
   }
 
   setRegionsColor();
