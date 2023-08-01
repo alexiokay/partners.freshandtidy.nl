@@ -22,35 +22,35 @@ div(class="w-full flex flex-col px-10 h-auto  relative overflow-visible md:pt-[3
     div(class="w-full flex flex-wrap justify-center md:justify-between gap-y-[2.6rem] mt-[3rem] px-8 after:flex-auto gap-x-[1.3rem]  overflow-y-scroll max-h-[calc(100vh-24rem)]")
         AddService
         Service(@click="isEditMode = !isEditMode" @select="selectMenu"  :selected="selected" title="HOUSE CLEANING" desc="We clean and care  for variety of hard surface flooring at many places of business.")
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-13.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
 
         Service(@select="selectMenu" title="KITCHEN CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business.")
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-23.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
         Service(@select="selectMenu"  title="FLOOR CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business.")
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-33.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
         Service(@select="selectMenu"  title="BATHROOM CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." )
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-43.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
         Service(@select="selectMenu"  title="OFFICE CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." )
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-53.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
         Service(@select="selectMenu"  title="CAR CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business.")
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-63.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
         Service(@select="selectMenu"  title="WINDOW CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." )
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-73.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
         Service(@select="selectMenu"  title="POWER WASHING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." )
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-83.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
         Service(@select="selectMenu"  title="UPHOLSTERY CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business.")
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-93.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
         Service(@select="selectMenu"  title="GARDEN MAINTENANCE" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business.")
-          template(v-slot="icon")
+          template(v-slot:icon)
             nuxt-img(src="icons/icon-103.png" width="190" h="45" class="w-[52%] md:w-auto h-auto  md:h-auto ")
         Service(@select="selectMenu"  title="OVEN AND APPLIANCE CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business.")
         
@@ -66,8 +66,6 @@ div(class="w-full flex flex-col px-10 h-auto  relative overflow-visible md:pt-[3
 </template>
 
 <script setup lang="ts">
-import { on } from "events";
-
 import { Switch } from "@headlessui/vue";
 
 const isEditMode = ref(false);
