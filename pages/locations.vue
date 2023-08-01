@@ -194,7 +194,7 @@ onMounted(() => {
         // If the region is not selected, reset the style to the default
         netherlandsLayer.resetStyle(layer);
       }
-    });
+    }); // end of netherlandsLayer.eachLayer
   }
 
   setRegionsColor();
