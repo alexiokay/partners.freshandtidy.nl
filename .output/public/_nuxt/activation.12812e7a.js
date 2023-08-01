@@ -1,0 +1,1 @@
+import{c as o,o as t}from"./entry.bf527e2a.js";import{_ as a}from"./_plugin-vue_export-helper.c27b6911.js";function c(r,n){return t(),o("p",null,"Wait for activation by arrow. You can speed it up by calling: ...")}const e={},l=a(e,[["render",c]]);export{l as default};
