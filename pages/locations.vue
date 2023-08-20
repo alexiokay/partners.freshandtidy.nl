@@ -1,6 +1,6 @@
 <template lang="pug">
 div(class="md:pt-[3rem]")
-    h1(class="w-full text-center text-5xl font-semibold") Locations
+    h1(class="w-full text-center text-5xl font-medium") Your Area
    
     div(class="flex w-full my-8 mt-12 px-8 text-xl justify-between")
 
