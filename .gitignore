@@ -129,4 +129,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .output/
-*output_gemeenten.json
+assets/output_gemeenten.json
