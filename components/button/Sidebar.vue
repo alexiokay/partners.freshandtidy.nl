@@ -1,13 +1,13 @@
 <template lang="pug">
-NuxtLink.menu-button(:to="props.to" :class="isActive? 'bg-slate-100': ''" class="relative whitespace-nowrap text-ellipsis flex w-full group justify-between rounded-md  hover:bg-slate-100 h-[1.9rem] md:h-[2.7rem] px-4 py-2 items-center hover:cursor-pointer")
-    div(class="flex space-x-2")
+NuxtLink.menu-button(:to="props.to" :class="isActive? 'font-bold': ''" class="relative whitespace-nowrap text-lg text-ellipsis flex w-full group justify-between rounded-md  hover:bg-slate-100 h-[1.9rem] md:h-[2.7rem] px-4 py-2 items-center hover:cursor-pointer")
+    div(class="flex space-x-4")
         slot(name="icon")
         p {{ props.text }}
     div(v-if="props.notifications_count >= 0" :class="props.notifications_count > 0? 'moving-flag-bg': 'bg-slate-50'" class="h-full w-[2rem]  flex items-center justify-center rounded-md")
         p() {{props.notifications_count}}
 
     slot(name="icon-2")
-    .active-pointer(v-if="isActive" class="absolute -left-[1rem]  w-[0.65rem] h-11 bg-violet-600 rounded-r-md")
+    .active-pointer(v-if="isActive" class="absolute -left-[3.5rem]  w-[0.65rem] h-11 bg-violet-600 rounded-r-md")
 
 </template>
 
