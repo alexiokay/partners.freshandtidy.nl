@@ -59,6 +59,23 @@ export default defineNuxtConfig({
     },
   },
 
+  image: {
+    domains: [process.env.FRONTEND_URL as string, "localhost:3000"],
+    format: ["webp"],
+    provider: "twicpics",
+    ipx: {
+      dir: "public",
+    },
+    storyblok: {
+      baseURL: "https://a.storyblok.com",
+    },
+    twicpics: {
+      baseURL: "https://freshandtidy.twic.pics/",
+      // Feel free to use our demo domain to try the following examples.
+      // baseUrl: 'https://demo.twic.pics/'
+    },
+  },
+
   app: {
     head: {
       charset: "utf-8",

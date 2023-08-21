@@ -3,12 +3,12 @@
 Transition(name="fade")
     <div v-show="!is_sidebar_open" @click="is_sidebar_open = !is_sidebar_open" tabindex="-1" class="fixed  lg:hidden top-0 pointer-event-none flex items-center bg-[rgba(0,0,0,0.55)] justify-center left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-screen md:h-full"></div>
 
-div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed w-[20rem] lg:w-[23rem] bottom-0 left-0 z-50  h-screen max-h-[calc(100vh-5rem)] bg-[#Fbfafa] px-2 pb-4 shadow-lg rounded-br-xl text-black items-center flex flex-col" )
+div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed w-[20rem] lg:w-[23rem] bottom-0 left-0 z-50  h-screen h-screen md:max-h-[calc(100vh-5rem)] bg-[#Fbfafa] px-2 pb-4 shadow-lg rounded-br-xl text-black items-center flex flex-col" )
     div#sidebar-header(class="relative w-full px-3 flex flex-col h-auto justify-between items-center gap-y-2 my-12")
         nuxt-img(src="https://thumbs.dreamstime.com/b/vertical-portrait-year-old-girl-full-growth-vertical-portrait-fashionable-year-old-girl-full-growth-against-183683965.jpg" width="100" height="30" format="webp" class="cover rounded-full aspect-square object-cover")
         p(class="text-2xl font-medium  w-full text-center flex flex-col ") Alexi 
           span Pawelec
-    div#sidebar-toggle(class="absolute top-1 -right-7 p-2 w-11 h-11 rounded-full bg-[#FAF9FC] flex flex-row justify-center items-center")
+    div#sidebar-toggle(class="md:hidden absolute top-1 -right-7 p-2 w-11 h-11 rounded-full bg-[#FAF9FC] flex flex-row justify-center items-center")
         div(@click="is_sidebar_open = !is_sidebar_open" class=" hover:cursor-pointer w-full h-full bg-slate-200 rounded-full")
             ArrowIcon(:class="!is_sidebar_open? 'animate-spinOnceBack': 'animate-spinOnce '" class="w-full h-full  ")
     div#sidebar-content(class="relative w-full h-full flex flex-col  items-start  space-y-5 rounded-md ")
@@ -38,7 +38,9 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
             ButtonSidebar(text="Subscriptions" to="/" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   SubscriptionIcon(class="w-7 h-7")
-
+            ButtonSidebar(text="Jobs" to="/jobs" @click="is_sidebar_open = !is_sidebar_open" )
+                template(v-slot:icon)
+                  JobsIcon(class="w-7 h-7")
             div(class="flex flex-col w-full ")
               ButtonSidebar( text="Schedules" to="/scheduling" @click="is_sidebar_open = !is_sidebar_open" )
                   template(v-slot:icon)
@@ -123,6 +125,8 @@ import ServicesIcon from "~icons/carbon/clean";
 import LocationsIcon from "~icons/carbon/location";
 import CancellationIcon from "~icons/material-symbols/cancel-outline";
 import ConfirmationIcon from "~icons/line-md/confirm";
+import JobsIcon from "~icons/ps/work-case";
+
 
 import { useMainStore } from "@/stores/Main";
 import { useUserStore } from "@/stores/User";
