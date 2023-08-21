@@ -70,7 +70,7 @@ export default defineNuxtConfig({
       baseURL: "https://a.storyblok.com",
     },
     twicpics: {
-      baseURL: "https://freshandtidy.twic.pics/partners/",
+      baseURL: "https://freshandtidy.twic.pics/",
       // Feel free to use our demo domain to try the following examples.
       // baseUrl: 'https://demo.twic.pics/'
     },
