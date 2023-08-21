@@ -3,9 +3,9 @@
 Transition(name="fade")
     <div v-show="!is_sidebar_open" @click="is_sidebar_open = !is_sidebar_open" tabindex="-1" class="fixed  lg:hidden top-0 pointer-event-none flex items-center bg-[rgba(0,0,0,0.55)] justify-center left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-screen md:h-full"></div>
 
-div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed w-[20rem] lg:w-[23rem] bottom-0 left-0 z-50  h-screen h-screen md:max-h-[calc(100vh-5rem)] bg-[#Fbfafa] px-2 pb-4 shadow-lg rounded-br-xl text-black items-center flex flex-col" )
+div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed w-[20rem] lg:w-[23rem] bottom-0 left-0 z-50  h-screen  md:max-h-[calc(100vh-5rem)] bg-[#Fbfafa] px-2 pb-4 shadow-lg rounded-br-xl text-black items-center flex flex-col" )
     div#sidebar-header(class="relative w-full px-3 flex flex-col h-auto justify-between items-center gap-y-2 my-12")
-        nuxt-img(src="https://thumbs.dreamstime.com/b/vertical-portrait-year-old-girl-full-growth-vertical-portrait-fashionable-year-old-girl-full-growth-against-183683965.jpg" width="100" height="30" format="webp" class="cover rounded-full aspect-square object-cover")
+        nuxt-img(src="images/girl.webp"  width="100" height="30" format="webp" class="cover rounded-full aspect-square object-cover")
         p(class="text-2xl font-medium  w-full text-center flex flex-col ") Alexi 
           span Pawelec
     div#sidebar-toggle(class="md:hidden absolute top-1 -right-7 p-2 w-11 h-11 rounded-full bg-[#FAF9FC] flex flex-row justify-center items-center")
