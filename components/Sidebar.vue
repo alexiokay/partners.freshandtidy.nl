@@ -53,7 +53,7 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
                   div(v-show="isMoreSchedulingSettings" class="flex flex-col w-full h-auto pl-[1.3rem] gap-y-2")
                     div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
                       ConfirmationIcon(class="w-5 h-5 ")
-                      nuxtLink(to="scheduling/availability") Availability
+                      nuxtLink(to="/scheduling/availability") Availability
                     div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
                       ConfirmationIcon(class="w-5 h-5 ")
                       p Initial Confirmation
@@ -126,7 +126,6 @@ import LocationsIcon from "~icons/carbon/location";
 import CancellationIcon from "~icons/material-symbols/cancel-outline";
 import ConfirmationIcon from "~icons/line-md/confirm";
 import JobsIcon from "~icons/ps/work-case";
-
 
 import { useMainStore } from "@/stores/Main";
 import { useUserStore } from "@/stores/User";
