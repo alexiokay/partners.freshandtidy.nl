@@ -1,13 +1,13 @@
 <template lang="pug">
-div(id="default" style="" class=" h-auto flex flex-row bg-[#Fbfafa] justify-center items-start w-full  ")
+div(id="default" style="" class=" h-auto flex flex-row bg-[#eff3f6] justify-center items-start w-full  ")
     div#overlay(class="absolute overlaying top-0 left-0 w-full h-screen bg-black opacity-40 z-10 hidden-overlay")
-    Topbar.topbar( class="hidden lg:flex w-full fixed top-0 h-[--topbar-height] bg-white z-50")
+    Topbar.topbar(v-if="isNavbarOff === false" class="hidden lg:flex w-full fixed top-0 h-[--topbar-height] bg-white z-50")
     .navigation(v-if="userStore.isLogged" class="  top-0 z-40")
      
       
-      Sidebar(class=" ")
+      Sidebar(class="")
     
-    div(class=" w-full  h-auto min-h-[calc(100vh-4rem)] mt-[3rem] lg:mt-[4rem] " :class="route.path!=='/login'  && route.path!=='/signup/carrier' && route.path!=='/signup/arrow' ? 'lg:px-8 py-7 lg:ml-[23rem]' : ''")
+    div( :class="isNavbarOff === true? '': 'mt-[3rem] lg:mt-[4rem]', route.path!=='/login'  && route.path!=='/signup/carrier' && route.path!=='/signup/arrow' ? 'lg:px-8  lg:ml-[23rem]' : ''" class=" w-full  h-auto min-h-[calc(100vh-4rem)]  " )
       <slot class="" />
       <!-- Footer(v-if="route.path!=='/login' && route.path!=='/signup'" class="mt-12") -->
 div(class="cursor cursor--small")
@@ -24,6 +24,10 @@ import { useUserStore } from "@/stores/User";
 const userStore = useUserStore();
 const router = useRouter();
 const route = useRoute();
+
+const isNavbarOff = computed(() => {
+  return route.meta.isNavbarOff;
+});
 const sendEmail = () => {
   document.location = "mailto:graphicdesigner@gmail.com";
 };

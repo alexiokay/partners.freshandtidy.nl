@@ -8,7 +8,7 @@ export default defineNuxtRouteMiddleware((from, to) => {
     // if (!userStore.carrier.is_activated) {
     //   console.log("not activated");
     //   return navigateTo("/signup/activation");
-    print("not activated");
+    console.log("not activated");
     // }
   }
 });

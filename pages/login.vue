@@ -53,6 +53,7 @@ import ShowIcon from "~icons/bxs/show";
 
 definePageMeta({
   // or middleware: 'auth'
+  isNavbarOff: true,
 });
 
 const userStore = useUserStore();
@@ -76,11 +77,13 @@ console.log(islocationModal.value);
 
 const login = async () => {
   const body = {
+    username: "",
     email: `${email.value}`,
     password: `${password.value}`,
   };
 
-  const url = `${config.API_URL}auth/login`;
+  const url = `${config.public.API_URL}auth/login/`;
+  console.log(url);
 
   await fetch(url, {
     method: "POST",

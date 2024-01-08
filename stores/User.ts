@@ -104,31 +104,27 @@ export const useUserStore = defineStore("User", {
       this.token = "";
       this.isLogged = false;
       this.accountType = "";
-      this.role = null;
+      //this.role = null;
       this.carrier = {} as Carrier;
       this.avatar = "";
     },
 
     setUser(data: any) {
       const user = data.user;
-      const account_type =
-        user.is_ArrowEmployee === false && user.is_carrier === true
-          ? "carrier"
-          : "arrow-employee";
 
-      if (account_type === "carrier") {
-        const carrier = data.member.carrier_family;
-        this.carrier.id = carrier.id;
-        this.carrier.name = carrier.name;
-        this.carrier.phone = carrier.phone;
-        this.carrier.city = carrier.city;
-        this.carrier.icon_url = carrier.icon_url;
-        this.carrier.is_activated = carrier.is_activated;
-      }
+      // if (account_type === "carrier") {
+      //   const carrier = data.member.carrier_family;
+      //   this.carrier.id = carrier.id;
+      //   this.carrier.name = carrier.name;
+      //   this.carrier.phone = carrier.phone;
+      //   this.carrier.city = carrier.city;
+      //   this.carrier.icon_url = carrier.icon_url;
+      //   this.carrier.is_activated = carrier.is_activated;
+      // }
       this.firstName = user.first_name;
       this.lastName = user.last_name;
-      this.role = data.member.role;
-      this.accountType = account_type;
+      //this.role = data.member.role;
+      this.accountType = user.type;
       this.username = user.username;
       this.email = user.email;
       this.token = data.key ? data.key : data.token;

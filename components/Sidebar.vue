@@ -3,9 +3,9 @@
 Transition(name="fade")
     <div v-show="!is_sidebar_open" @click="is_sidebar_open = !is_sidebar_open" tabindex="-1" class="fixed  lg:hidden top-0 pointer-event-none flex items-center bg-[rgba(0,0,0,0.55)] justify-center left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-screen md:h-full"></div>
 
-div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed w-[20rem] lg:w-[23rem] bottom-0 left-0 z-50  h-screen  md:max-h-[calc(100vh-5rem)] bg-[#Fbfafa] px-2 pb-4 shadow-lg rounded-br-xl text-black items-center flex flex-col" )
+div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed w-[20rem] lg:w-[23rem] bottom-0 left-0 z-50  h-screen   bg-[#Fbfafa] px-2 pb-4 shadow-lg rounded-br-xl text-black items-center flex flex-col" )
     div#sidebar-header(class="relative w-full px-3 flex flex-col h-auto justify-between items-center gap-y-2 my-12")
-        nuxt-img(src="images/girl.webp"  width="100" height="30" format="webp" class="cover rounded-full aspect-square object-cover")
+        nuxt-img(src="images/girl.webp"  width="100" height="100" format="webp" class="cover rounded-full aspect-square object-cover")
         p(class="text-2xl font-medium  w-full text-center flex flex-col ") Alexi 
           span Pawelec
     div#sidebar-toggle(class="md:hidden absolute top-1 -right-7 p-2 w-11 h-11 rounded-full bg-[#FAF9FC] flex flex-row justify-center items-center")
@@ -22,11 +22,13 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
             //-         NotificationIcon(class="w-7 h-7")
         hr(class="w-3/5  border-[#E7e3e3] border-[0.1rem]  mx-auto" )
         div(class="w-full h-auto scroll-smooth no-scrollbar  flex flex-col  items-start mt-4 space-y-2 px-2 lg:px-14")
-
             
             
             
-
+            
+            ButtonSidebar(text="Quotes" to="/quotes" @click="is_sidebar_open = !is_sidebar_open" )
+                template(v-slot:icon)
+                  QuotesIcon(class="w-7 h-7")     
             ButtonSidebar(text="Your Services" to="/services" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   ServicesIcon(class="w-7 h-7")
@@ -34,10 +36,16 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
                 template(v-slot:icon)
                   LocationsIcon(class="w-7 h-7")
             
-                    
-            ButtonSidebar(text="Subscriptions" to="/" @click="is_sidebar_open = !is_sidebar_open" )
+               
+            ButtonSidebar(text="Subscriptions" to="/subscriptions" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   SubscriptionIcon(class="w-7 h-7")
+            ButtonSidebar(text="Customers" to="/customers" @click="is_sidebar_open = !is_sidebar_open" )
+                template(v-slot:icon)
+                  CustomersIcon(class="w-7 h-7")
+            ButtonSidebar(text="Invoices" to="/invoices" @click="is_sidebar_open = !is_sidebar_open" )
+                template(v-slot:icon)
+                  InvoicesIcon(class="w-7 h-7")
             ButtonSidebar(text="Jobs" to="/jobs" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   JobsIcon(class="w-7 h-7")
@@ -67,12 +75,6 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
 
                    
 
-            
-            
-            
-            
-   
-
             div(class="flex flex-col w-full ")
               ButtonSidebar( text="Settings" to="/dashboard/settings" @click="is_sidebar_open = !is_sidebar_open" )
                   template(v-slot:icon)
@@ -101,6 +103,7 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
                   template(v-slot:icon)
                     PhoneIcon(class="w-7 h-7")
             
+      
      
         
             
@@ -126,6 +129,9 @@ import LocationsIcon from "~icons/carbon/location";
 import CancellationIcon from "~icons/material-symbols/cancel-outline";
 import ConfirmationIcon from "~icons/line-md/confirm";
 import JobsIcon from "~icons/ps/work-case";
+import CustomersIcon from "~icons/fluent/person-accounts-24-regular";
+import InvoicesIcon from "~icons/fluent/document-error-20-regular";
+import QuotesIcon from "~icons/clarity/contract-line";
 
 import { useMainStore } from "@/stores/Main";
 import { useUserStore } from "@/stores/User";
