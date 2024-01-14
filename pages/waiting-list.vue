@@ -1,6 +1,6 @@
 <template lang="pug">
 
-div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern bg-white  pt-[2.5rem] md:pt-[4rem] lg:pt-[5rem]")
+div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern bg-white  pt-[2.5rem] md:pt-[4rem] lg:pt-[5rem] overflow-x-clip")
     div(class="flex flex-col w-full h-auto ")
         nuxt-img(src="images/logoFT.png" class="mx-auto" alt="logo" width="200" height="200")
     div(class="w-full h-auto lg:mt-[4rem] flex flex-col lg:flex-row  font-intern lg:px-[15rem] py-[3rem] gap-x-[2rem] xl:gap-x-[8rem] gap-y-[2rem] justify-center")
@@ -22,7 +22,7 @@ div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern 
                 button(type="submit" class="bg-[#0093ff] text-white px-5 py-3  w-full h-auto text-xl font-medium  ") Add me to the Waiting List
 
 
-    div(class="flex flex-col w-full mt-[2rem] lg:mt-[5rem]  items-center text-white  pt-[2rem] pb-[12rem] bg-black")
+    div(class="flex flex-col w-full mt-[2rem] lg:mt-[5rem]  items-center text-white  pt-[2rem] pb-[5rem] lg:pb-[12rem] bg-black")
             div(class="flex  lg:mt-12 w-auto relative flex-col text-3xl lg:text-[3rem] items-center  font-bold")
                 //- nuxt-img(src="images/v2/star.png" width="60px" class=" absolute -top-[2rem] -right-[2rem]")
                 //- nuxt-img(src="images/v2/star1.png" width="50px" class=" absolute top-[0rem] -right-[6rem]")
@@ -81,18 +81,9 @@ div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern 
 
                     p  Get started
 
-    div(class="flex flex-col w-full mt-[2rem] gap-y-12 items-center text-black  pt-[2rem] pb-[12rem] bg-white")
-            div(class="flex  w-auto relative flex-col text-3xl lg:text-[3rem] items-center  font-bold")
-                //- nuxt-img(src="images/v2/star.png" width="60px" class=" absolute -top-[2rem] -right-[2rem]")
-                //- nuxt-img(src="images/v2/star1.png" width="50px" class=" absolute top-[0rem] -right-[6rem]")
-                //- nuxt-img(src="images/v2/star.png" width="40px" class=" absolute top-[2rem] -left-[3rem]")
-                p(class="w-auto flex flex-wrap gap-x-3 items-center justify-center text-3xl lg:text-[3rem] text-[#7863FA]") How
-                    span(class="text-black")  does it Work?
-                
-                   
+    
 
-
-    div(class="flex flex-col w-full mt-[2rem] gap-y-12 items-center text-black  pt-[2rem] pb-[12rem] bg-white")
+    div(class="flex flex-col w-full mt-[2rem] gap-y-12 items-center text-black  pt-[2rem] pb-[2rem] lg:pb-[12rem] bg-white")
             div(class="flex  w-auto relative flex-col text-3xl lg:text-[3rem] items-center  font-bold")
                 //- nuxt-img(src="images/v2/star.png" width="60px" class=" absolute -top-[2rem] -right-[2rem]")
                 //- nuxt-img(src="images/v2/star1.png" width="50px" class=" absolute top-[0rem] -right-[6rem]")
@@ -122,7 +113,62 @@ div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern 
                     nuxt-img(src="images/demo/FTP3X.png" format="webp" class="w-full lg:w-1/2 h-full mt-[3rem] border-[1px] border-[#000000a1]  lg:rounded-3xl" )
                     nuxt-img(src="images/demo/FTP4X.png" format="webp" class="w-full lg:w-1/2 h-full mt-[3rem] border-[1px] border-[#000000a1]  lg:rounded-3xl" )
 
+    div(class="flex flex-col w-full mt-[2rem] gap-y-12 lg:gap-y-24 items-center text-black  pt-[2rem] pb-[6rem] bg-white")
+            div(class="flex  w-auto relative flex-col text-3xl lg:text-[3rem] items-center  font-bold")
+                //- nuxt-img(src="images/v2/star.png" width="60px" class=" absolute -top-[2rem] -right-[2rem]")
+                //- nuxt-img(src="images/v2/star1.png" width="50px" class=" absolute top-[0rem] -right-[6rem]")
+                //- nuxt-img(src="images/v2/star.png" width="40px" class=" absolute top-[2rem] -left-[3rem]")
+                p(class="w-auto flex flex-wrap gap-x-3 items-center justify-center text-3xl lg:text-[3rem] text-[#7863FA]") How
+                    span(class="text-black")  does it Work?
+                
+            div(class="flex flex-col w-full lg:w-[50rem]  gap-y-6 items-start px-3 lg:px-0")
+                    div(class="flex flex-col gap-y-1")
+                        p(class="font-bold text-xl") Step 1: Sign Up and Get Onboard
+                        div(class="flex flex-col items-start justify-start  ")
+                            p(class="font-bold text-start")  Join and Showcase: 
+                                span(class="font-normal") Quickly sign up and set up your profile to showcase your services, skills, and experience on partner's portal
+                        
+                    div(class="flex flex-col gap-y-1")        
+                        p(class="font-bold text-xl") Step 2: We Match You with Ideal Clients
+                        div(class="flex flex-col items-start justify-start ")
+                            p(class="font-bold text-start") Client Matching: 
+                                span(class="font-normal") Based on your service offerings and location, we connect you with clients who are looking for exactly what you provide using our Portal www.freshandtidy.nl
 
+                    div(class="flex flex-col gap-y-1")
+                        p(class="font-bold text-xl") Step 3: Simplified Financial Management
+                        div(class="flex flex-col items-start justify-start ")
+                            p(class="font-bold text-start") Track Finances: 
+                                span(class="font-normal") Track and manage your finances effortlessly with automated tools for earnings, expenses, and invoicing.
+                    div(class="flex flex-col gap-y-1")
+                        p(class="font-bold text-xl") Step 4: Deliver Great Service and Build Relationships
+                        div(class="flex flex-col items-start justify-start ")
+                            p(class="font-bold text-start") Understand Client Needs:
+                                span(class="font-normal") Understand and cater to client needs, ensuring top-notch service and building lasting relationships.
+                       
+                    div(class="flex flex-col gap-y-1")
+                        p(class="font-bold text-xl") Step 5: Streamline Operations
+                        div(class="flex flex-col items-start justify-start ")
+                            p(class="font-bold text-start") Efficiency Tools: 
+                                span(class="font-normal") Use our smart scheduling and job management features to optimize your time and resources.
+                    div(class="flex flex-col gap-y-1")
+                        p(class="font-bold text-xl") Step 6: Earn and Grow
+                        div(class="flex flex-col items-start justify-start ")
+                                p(class="font-bold text-start") Earnings and Expansion: 
+                                    span(class="font-normal") Benefit from competitive earnings, prompt payments, and opportunities to expand your team and services.
+
+                    div(class="flex flex-col gap-y-1")
+                        p(class="font-bold text-xl") Step 7: Continuous Improvement and Support
+                        div(class="flex flex-col items-start justify-start ") 
+                                p(class="font-bold text-start") Feedback and Ratings: 
+                                    span(class="font-normal") After each job, view client feedback to continuously improve your services.
+                                p(class="font-bold text-start") Dedicated Support: 
+                                    span(class="font-normal") Our support team is always here to assist you with any questions or guidance you need.
+                    div(class="flex flex-col gap-y-1")
+                        p(class="font-bold text-xl") Step 8: Expand Your Reach
+                        div(class="flex flex-col items-start justify-start ")
+                                p(class="font-bold text-start") Expand Your Reach: 
+                                    span(class="font-normal") Grow your client base and scale your business, leveraging the insights and tools from FreshAndTidy.
+                        
 </template>
 
 <script setup lang="ts">
