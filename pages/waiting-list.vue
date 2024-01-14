@@ -28,10 +28,10 @@ div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern 
                 //- nuxt-img(src="images/v2/star.png" width="40px" class=" absolute top-[2rem] -left-[3rem]")
                 p(class="w-auto flex flex-wrap gap-x-3 items-center justify-center") Grow your 
                     span(class="text-[#7863FA]") Cleaning
-                    span(class="hidden md:visible") Business
+                    span(class="hidden md:flex") Business
                     span(class="visible md:hidden") Business with Us
 
-                p(class=" w-auto flex hidden md:visible ") With Us
+                p(class=" w-auto  hidden md:flex mt-6 ") With Us
 
 
             div(class="flex mt-16 lg:mt-28  w-full md:max-w-[86rem] flex-wrap justify-between items-start gap-y-12 lg:gap-y-[6rem] px-8 lg:px-0")
