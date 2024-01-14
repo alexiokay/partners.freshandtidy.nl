@@ -49,6 +49,9 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
             ButtonSidebar(text="Jobs" to="/jobs" @click="is_sidebar_open = !is_sidebar_open" )
                 template(v-slot:icon)
                   JobsIcon(class="w-7 h-7")
+            ButtonSidebar(text="Competitor's Analysis" to="/competitors-analysis" @click="is_sidebar_open = !is_sidebar_open" )
+                template(v-slot:icon)
+                  JobsIcon(class="w-7 h-7")
             div(class="flex flex-col w-full ")
               ButtonSidebar( text="Schedules" to="/scheduling" @click="is_sidebar_open = !is_sidebar_open" )
                   template(v-slot:icon)
@@ -94,6 +97,12 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
                     div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
                       LockerIcon(class="w-5 h-5 ")
                       p security
+                    div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
+                      LockerIcon(class="w-5 h-5 ")
+                      p languages
+                    div(class="w-auto flex gap-x-2 hover:text-blue-400 rounded-md px-2  hover:cursor-pointer")
+                      LockerIcon(class="w-5 h-5 ")
+                      p security
 
                     p Notifications
         hr(class="w-3/5  border-[#E7e3e3] border-[0.1rem]  mx-auto" )
@@ -102,6 +111,8 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
           ButtonSidebar(text="Call Logs" to="/calls" @click="is_sidebar_open = !is_sidebar_open" )
                   template(v-slot:icon)
                     PhoneIcon(class="w-7 h-7")
+        
+    button(@click="userStore.logout()" class="bg-[#a34338] text-white px-4 py-2 rounded-xl w-full h-auto text-lg font-medium ") Logout
             
       
      
@@ -150,7 +161,7 @@ function enter(el, done) {
   requestAnimationFrame(() => {
     el.style.transition = "opacity 0.2s, height 0.2s";
     el.style.opacity = "1";
-    el.style.height = "125px"; // Adjust the height you want the submenu to expand to
+    el.style.height = "190px"; // Adjust the height you want the submenu to expand to
 
     // Wait for the transition to finish
     el.addEventListener("transitionend", done);

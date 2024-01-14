@@ -28,7 +28,7 @@ export const useUserStore = defineStore("User", {
       email: "",
       avatar: "",
       token: "",
-      isLogged: true, //TODO: false
+      isLogged: false, //TODO: false
       is_activated: false,
       activated_by: null,
       accountType: "arrow-employee", //arrow_employee, carrier
@@ -37,15 +37,6 @@ export const useUserStore = defineStore("User", {
         shortname: null,
         name: null,
       } as Role,
-      carrier: {
-        id: null,
-        name: null,
-        phone: null,
-        city: null,
-        icon_url: null,
-        is_activated: null,
-        activated_by: null,
-      } as Carrier,
     };
   },
   getters: {
@@ -73,13 +64,13 @@ export const useUserStore = defineStore("User", {
     getAccountType(state) {
       return state.accountType;
     },
-    getFamily(state) {
-      if (state.accountType === "carrier") {
-        return state.carrier.name;
-      } else {
-        return "Arrow";
-      }
-    },
+    // getFamily(state) {
+    //   if (state.accountType === "carrier") {
+    //     return state.carrier.name;
+    //   } else {
+    //     return "Arrow";
+    //   }
+    // },
     getRole(state) {
       if (state.role === null) return "null";
       else return state.role.shortname;
@@ -105,8 +96,17 @@ export const useUserStore = defineStore("User", {
       this.isLogged = false;
       this.accountType = "";
       //this.role = null;
-      this.carrier = {} as Carrier;
       this.avatar = "";
+      this.is_activated = false;
+      this.activated_by = null;
+      this.firstName = "";
+      this.lastName = "";
+      this.default_login_mode = "carrier";
+      this.role = {
+        id: null,
+        shortname: null,
+        name: null,
+      } as Role;
     },
 
     setUser(data: any) {

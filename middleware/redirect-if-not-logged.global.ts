@@ -8,6 +8,9 @@ export default defineNuxtRouteMiddleware((from, to) => {
 
   if (!userStore.getIsLogged) {
     if (from.path === "/login") return;
-    return "/login";
+    if (from.path === "/register") return;
+    // if (from.path === "/forgot-password") return;
+    if (from.path === "/waiting-list") return;
+    return "/waiting-list";
   }
 });

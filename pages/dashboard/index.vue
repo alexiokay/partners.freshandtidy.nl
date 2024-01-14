@@ -18,25 +18,7 @@ div#content(class="text-black w-full h-full px-6 py-[0.4rem] flex flex-col justi
             class="inline-block h-4 w-4 transform rounded-full bg-white transition")
         p Monthly
     
-      div(class="h-[7rem] w-full flex  mt-2 justify-between")
-        DashboardQuickMenuItem(text="Calls" :value="todayShipments")
-          template(v-slot:icon)
-            PackageIcon(class="w-12 h-12  text-violet-500 ")
-        DashboardQuickMenuItem(text="Ready for Shippping" value="0")
-        DashboardQuickMenuItem(text="In transit" value="0")
-        DashboardQuickMenuItem(text="Delivered" value="0")
-    div(class="flex w-full md:flex-row flex-col justify-between h-auto mt-8")
-      DashboardDelayedDelivery(class="md:w-[calc(50%-1rem)] w-full")
-      DashboardDailyPlan(class="md:w-[calc(50%-1rem)] w-full")
       
-    div(class="flex w-full md:flex-row flex-col justify-between h-auto")
-      DashboardTodo(class="md:w-[calc(50%-1rem)] w-full min-h-[30rem]")
-      DashboardYourActivity(class="md:w-[calc(50%-1rem)] w-full min-h-[30rem]")
-     
-   
-
-      
-        
 </template>
 
 <script setup lang="ts">

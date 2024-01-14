@@ -121,6 +121,11 @@ const initMap = () => {
 // selectedProvinces.value = tempProvinces;
 // console.log(selectedProvinces.value);
 
+useFetch(async () => {
+  const tempProvinces = await getLocalizations(token);
+  selectedProvinces.value = tempProvinces;
+});
+
 // Function to handle the region click event
 function handleRegionClick(clickedFeature, layer) {
   // Get the ID or unique identifier of the clicked region
@@ -196,8 +201,9 @@ onMounted(() => {
       }
     });
   }
-
-  setRegionsColor();
+  watch(selectedProvinces, (newValue) => {
+    setRegionsColor();
+  });
 });
 </script>
 
