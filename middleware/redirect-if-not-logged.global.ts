@@ -4,6 +4,8 @@ export default defineNuxtRouteMiddleware((from, to) => {
   console.log(userStore.getIsLogged);
   if (userStore.getIsLogged) {
     if (from.path === "/login") return "/";
+    if (from.path === "/register") return "/";
+    if (from.path === "/waiting-list") return "/";
   }
 
   if (!userStore.getIsLogged) {

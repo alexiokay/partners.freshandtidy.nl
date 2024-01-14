@@ -90,7 +90,9 @@ export default defineNuxtConfig({
           content: " ",
         },
       ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/images/icon.ico" }],
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/images/favicon.ico" },
+      ],
     },
   },
 

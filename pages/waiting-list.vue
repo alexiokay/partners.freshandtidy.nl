@@ -1,6 +1,6 @@
 <template lang="pug">
 
-div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern bg-white  pt-[5rem]")
+div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern bg-white  pt-[2.5rem] md:pt-[4rem] lg:pt-[5rem]")
     div(class="flex flex-col w-full h-auto ")
         nuxt-img(src="images/logoFT.png" class="mx-auto" alt="logo" width="200" height="200")
     div(class="w-full h-auto lg:mt-[4rem] flex flex-col lg:flex-row  font-intern lg:px-[15rem] py-[3rem] gap-x-[2rem] xl:gap-x-[8rem] gap-y-[2rem] justify-center")
@@ -21,7 +21,7 @@ div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern 
                 button(type="submit" class="bg-[#0093ff] text-white px-5 py-3  w-full h-auto text-xl font-medium  ") Add me to the Waiting List
 
 
-    div(class="flex flex-col w-full mt-[8rem]  items-center text-white  pt-[2rem] pb-[12rem] bg-black")
+    div(class="flex flex-col w-full mt-[2rem]  items-center text-white  pt-[2rem] pb-[12rem] bg-black")
             div(class="flex  w-auto relative flex-col text-3xl lg:text-[3rem] items-center  font-bold")
                 //- nuxt-img(src="images/v2/star.png" width="60px" class=" absolute -top-[2rem] -right-[2rem]")
                 //- nuxt-img(src="images/v2/star1.png" width="50px" class=" absolute top-[0rem] -right-[6rem]")

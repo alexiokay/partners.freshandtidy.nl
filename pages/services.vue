@@ -1,13 +1,13 @@
 <template lang="pug">
 div(class="w-full flex flex-col px-10 h-full  relative overflow-visible md:pt-[3rem] gap-y-4 rounded-xl ")
- 
-  div(class="flex w-full  h-[10rem] bg-white  rounded-xl shadow-sm p-6 gap-x-6 border-[#e4eaf1] border-[1px] ")
-    div(class="w-full h-10 flex gap-x-4 items-center ")
-      p Price per kilometer (EUR) 
-        p(class="underline") [medium 1,12 eur]
-      input(class="w-1/4 h-[2.5rem] border-[1px] focus:outline-none px-2 py-1" value='1,12')
-      button(class="bg-[#53c0fbfa] border-[1px] text-white px-4 py-2 rounded-xl w-[10rem] h-full text-lg font-medium ") Save
-        
+  div(class="w-full px-16")
+    div(class="flex w-full  h-[10rem] bg-white  rounded-xl shadow-sm p-6 gap-x-6 border-[#e4eaf1] border-[1px] ")
+      div(class="w-full h-10 flex gap-x-4 items-center ")
+        p Price per kilometer (EUR) 
+          p(class="underline") [medium 1,12 eur]
+        input(class="w-1/4 h-[2.5rem] border-[1px] focus:outline-none px-2 py-1" value='1,12')
+        button(class="bg-[#53c0fbfa] border-[1px] text-white px-4 py-2 rounded-xl w-[10rem] h-full text-lg font-medium ") Save
+          
   div(class="w-full flex flex-col px-10 h-full  relative overflow-visible md:pt-[3rem] gap-y-4 ")
     h1(class="w-full text-center text-5xl font-semibold") Your Services
     ModalEditService(:isOpen="isEditMode" :data="editSubscriptionData" @confirm="isEditMode = !isEditMode" @close="isEditMode = !isEditMode" )

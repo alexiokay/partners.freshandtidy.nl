@@ -34,7 +34,7 @@ div(class=" w-full md:h-screen  flex flex-col lg:flex-row  ")
       p(class="absolute bottom-6 text-lg") Not a member? 
         span(@click="router.push(`/signup`)" class="font-semibold hover:cursor-pointer text-green-700") Register now
   div(class="lg:w-[55%] w-full h-full p-12")
-    nuxt-img(src="images/loginpage2.png" class="w-full h-full my-auto rounded-2xl object-cover" format="webp")
+    nuxt-img(src="images/loginpage2.png" class="w-full h-full my-auto rounded-2xl object-cover" width="800" height="1000" format="webp")
 </template>
 
 <script setup lang="ts">
