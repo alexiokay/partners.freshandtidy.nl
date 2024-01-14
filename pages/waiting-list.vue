@@ -8,8 +8,9 @@ div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern 
         
             h1(class="font-bold text-3xl lg:text-4xl ") Join our WaitList.
             p(class="text-xl lg:text-3xl lg:w-[35rem] tracking-wider text-start ") Be the first in line to witness our groundbreaking platform for cleaning businesses.
-            p.mt-auto.text-start We are launching soon. 
-                p Join our waiting list to be the first to know when we launch.
+            div(class="flex flex-col text-start items-start")
+                p.mt-auto We are launching soon. 
+                p.mt-1 Join our waiting list to be the first to know when we launch.
         
         form(class="w-full px-8 lg:px-0 lg:w-auto mx-auto lg:mx-0 flex flex-col gap-y-6 text-xl launchlist-form " action="https://getlaunchlist.com/s/sunvQN" method="POST")
     
