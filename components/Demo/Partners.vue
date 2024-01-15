@@ -26,7 +26,7 @@ div(class="flex flex-col w-full mt-[2rem] gap-y-12 items-center text-black  pt-[
         div(class="flex-col flex gap-x-8 w-full lg:w-4/5 ")
             nuxt-img(src="images/demo/partners/localizations1.png" format="webp" class="w-full  h-full mt-8 lg:mt-[3rem] border-[1px] border-[#000000a1] lg:rounded-3xl" )
             p(class=" w-auto text-lg font-normal  text-center") (Choose your working area)
-            nuxt-img(src="images/demo/partners/quotes.png" format="webp" class="w-full  h-full mt-[3rem] border-[1px] border-[#000000a1]  lg:rounded-3xl" )
+            nuxt-img(src="images/demo/partners/Quotes.png" format="webp" class="w-full  h-full mt-[3rem] border-[1px] border-[#000000a1]  lg:rounded-3xl" )
             p(class=" w-auto text-lg font-normal  text-center") (Review and manage quotes)
         //- div(class="flex-col flex gap-x-8 w-full lg:w-4/5 ")
         //-     nuxt-img(src="images/demo/FTP3X.png" format="webp" class="w-full h-full mt-[3rem] border-[1px] border-[#000000a1]  lg:rounded-3xl" )
