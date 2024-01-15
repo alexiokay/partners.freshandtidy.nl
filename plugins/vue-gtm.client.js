@@ -9,7 +9,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.vueApp.use(
     createGtm({
-      id: "G-8K3HPXMCK1",
+      id: "GTM-KZ86ZXS5",
       defer: false, // defaults to false.
       compatibility: false, // Will add `async` and `defer` to the script tag to not block requests for old browsers that do not support `async`
       // nonce: '2726c7f26c',     // Will be added to script tag as 'nonce' attr
