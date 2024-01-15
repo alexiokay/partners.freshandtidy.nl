@@ -11,8 +11,9 @@
 AppSetup();
 const locale = useState<string>("locale.setting");
 const app = useAppConfig();
-</script>
 
+const $gtm = useGtm();
+</script>
 
 <style lang="scss">
 .page-enter-active,
@@ -24,5 +25,4 @@ const app = useAppConfig();
   opacity: 0;
   filter: blur(1rem);
 }
-
 </style>
