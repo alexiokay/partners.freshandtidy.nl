@@ -18,7 +18,7 @@ export const useCookiesStore = defineStore("cookiesStore", {
       acceptedCookies: {
         necessary: true,
         functional: false,
-        analytics: false,
+        analytics: true,
         performance: false,
         advertisement: false,
         others: false,
