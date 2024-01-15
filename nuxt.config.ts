@@ -1,17 +1,18 @@
 import { defineNuxtConfig } from "nuxt/config";
 import Icons from "unplugin-icons/vite";
-import { IntlifyModuleOptions } from "@intlify/nuxt3";
+// import { IntlifyModuleOptions } from "@intlify/nuxt3";
 
 declare module "@nuxt/schema" {
-  interface NuxtConfig {
-    intlify?: IntlifyModuleOptions;
-  }
+  // interface NuxtConfig {
+  //   intlify?: IntlifyModuleOptions;
+  // }
 }
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/content",
+    "@nuxtjs/i18n",
 
     [
       "@pinia/nuxt",
@@ -21,7 +22,7 @@ export default defineNuxtConfig({
     ],
     "nuxt-simple-sitemap",
     "@pinia-plugin-persistedstate/nuxt",
-    "@intlify/nuxt3",
+    // "@intlify/nuxt3",
     "@nuxt/image-edge",
     "unplugin-icons/nuxt",
   ],
@@ -51,14 +52,14 @@ export default defineNuxtConfig({
 
     // Render these routes on the client (SPA) { ssr: false },
   },
-  intlify: {
-    localeDir: "locales",
-    vueI18n: {
-      locale: "en",
-      fallbackLocale: "en",
-      availableLocales: ["en", "pl"],
-    },
-  },
+  // intlify: {
+  //   localeDir: "locales",
+  //   vueI18n: {
+  //     locale: "en",
+  //     fallbackLocale: "en",
+  //     availableLocales: ["en", "pl"],
+  //   },
+  // },
 
   image: {
     domains: [process.env.FRONTEND_URL as string, "localhost:3000"],
