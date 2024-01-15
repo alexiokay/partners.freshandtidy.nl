@@ -74,7 +74,8 @@
     "sass-loader": "^13.3.3",
     "translate": "^2.0.2",
     "unplugin-auto-import": "^0.17.3",
-    "unplugin-icons": "^0.18.2"
+    "unplugin-icons": "^0.18.2",
+    "@rollup/rollup-linux-x64-gnu": "^4.9.5"
   },
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.3.42",
