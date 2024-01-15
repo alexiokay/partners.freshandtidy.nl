@@ -83,7 +83,7 @@ div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern 
 
     
 
-    div(class="flex flex-col w-full mt-[2rem] gap-y-12 items-center text-black  pt-[2rem] pb-[2rem] lg:pb-[12rem] bg-white")
+    div(class="flex flex-col w-full mt-[2rem] gap-y-12 items-center text-black  pt-[2rem] pb-[2rem] lg:pb-[9rem] bg-white")
             div(class="flex  w-auto relative flex-col text-3xl lg:text-[3rem] items-center  font-bold")
                 //- nuxt-img(src="images/v2/star.png" width="60px" class=" absolute -top-[2rem] -right-[2rem]")
                 //- nuxt-img(src="images/v2/star1.png" width="50px" class=" absolute top-[0rem] -right-[6rem]")
@@ -96,7 +96,7 @@ div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern 
             nuxt-img(src="images/demo/freshandtidy.png" format="webp" class="w-[93%] lg:w-3/5 h-full  border-[1px] border-[#000000a1]" )
 
             div(class="flex flex-col w-[93%] items-center justify-center px-2 lg:px-0")
-                div(class="flex mt-[2rem]  w-auto relative flex-col text-3xl lg:text-[3rem] items-center  font-bold")
+                div(class="flex mt-[2rem] lg:mt-[4rem]  w-auto relative flex-col text-3xl lg:text-[3rem] items-center  font-bold")
                     //- nuxt-img(src="images/v2/star.png" width="60px" class=" absolute -top-[2rem] -right-[2rem]")
                     //- nuxt-img(src="images/v2/star1.png" width="50px" class=" absolute top-[0rem] -right-[6rem]")
                     //- nuxt-img(src="images/v2/star.png" width="40px" class=" absolute top-[2rem] -left-[3rem]")
@@ -106,10 +106,10 @@ div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern 
                     p(class=" w-auto text-lg font-normal  mt-1 lg:mt-3 text-center") (Every service includes diffrent questions)
                     
                     
-                div(class="flex-col md:flex-row flex gap-x-8 w-full lg:w-3/4 ")
+                div(class="flex-col md:flex-row flex gap-x-8 w-full lg:w-3/5 ")
                     nuxt-img(src="images/demo/FTP1X.png" format="webp" class="w-full lg:w-1/2 h-full mt-8 lg:mt-[3rem] border-[1px] border-[#000000a1] lg:rounded-3xl" )
                     nuxt-img(src="images/demo/FTP2X.png" format="webp" class="w-full lg:w-1/2 h-full mt-[3rem] border-[1px] border-[#000000a1]  lg:rounded-3xl" )
-                div(class="flex-col md:flex-row flex gap-x-8 w-full lg:w-3/4 ")
+                div(class="flex-col md:flex-row flex gap-x-8 w-full lg:w-3/5 ")
                     nuxt-img(src="images/demo/FTP3X.png" format="webp" class="w-full lg:w-1/2 h-full mt-[3rem] border-[1px] border-[#000000a1]  lg:rounded-3xl" )
                     nuxt-img(src="images/demo/FTP4X.png" format="webp" class="w-full lg:w-1/2 h-full mt-[3rem] border-[1px] border-[#000000a1]  lg:rounded-3xl" )
 
@@ -185,20 +185,15 @@ const scrollToForm = () => {
   });
 };
 
-useHead({
-  script: [
-    {
-      src: "https://getlaunchlist.com/js/widget-diy.js",
-      body: true,
-    },
-  ],
-  title: "Waiting List",
-  meta: [
-    {
-      name: "description",
-      content: "Waiting List",
-    },
-  ],
+useSeoMeta({
+  title: "FreshAndTidy | Waiting List",
+  ogTitle: "FreshAndTidy | Waiting List",
+  description: "Waiting List",
+  ogDescription: "Waiting List",
+  image: "https://partners.freshandtidy.nl/images/demo/wlimage.png",
+  ogImage: "https://partners.freshandtidy.nl/images/demo/wlimage.png",
+  url: "https://partners.freshandtidy.nl/wlimage.png",
+  twitterImage: "https://partners.freshandtidy.nl/images/demo/wlimage.png",
 });
 </script>
 

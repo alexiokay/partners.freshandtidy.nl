@@ -112,7 +112,7 @@ div#sidebar(:class="is_sidebar_open? 'hide-left  ': 'show-right'" class=" fixed 
                   template(v-slot:icon)
                     PhoneIcon(class="w-7 h-7")
         
-    button(@click="userStore.logout()" class="bg-[#a34338] text-white px-4 py-2 rounded-xl w-full h-auto text-lg font-medium ") Logout
+    button(@click="logout" class="bg-[#a34338] text-white px-4 py-2 rounded-xl w-full h-auto text-lg font-medium ") Logout
             
       
      
@@ -148,6 +148,11 @@ import { useMainStore } from "@/stores/Main";
 import { useUserStore } from "@/stores/User";
 const userStore = useUserStore();
 const mainStore = useMainStore();
+
+const logout = () => {
+  userStore.logout();
+  window.location.reload();
+};
 // ------ is's ------ //
 const is_sidebar_open = ref(false);
 const isMoreSettings = ref(false);
