@@ -1,6 +1,6 @@
 import Hotjar from "@hotjar/browser";
 
-const siteId = 3610842;
+const siteId = 3825742;
 const hotjarVersion = 6;
 
 export default defineNuxtPlugin((nuxtApp) => {
