@@ -2,7 +2,7 @@
   <Html :lang="locale">
     <NuxtLayout name="default">
       <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
-      <NuxtPage class="overflow-hidden" />
+      <NuxtPage class="" />
     </NuxtLayout>
   </Html>
 </template>

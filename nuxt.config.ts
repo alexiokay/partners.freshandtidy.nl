@@ -31,6 +31,10 @@ export default defineNuxtConfig({
     transpile: ["@headlessui/vue", "@fawmi/vue-google-maps"],
   },
 
+  devServer: {
+    port: 3001,
+  },
+
   content: {
     // https://content.nuxtjs.org/api/configuration
   },

@@ -1,5 +1,5 @@
 <template lang="pug">
-div(class="md:pt-[3rem]")
+div(class="md:pt-[3rem] " )
     h1(class="w-full text-center text-5xl font-medium") Your Area
    
     div(class="flex w-full my-8 mt-12 px-8 text-xl justify-between")
@@ -7,7 +7,19 @@ div(class="md:pt-[3rem]")
         p Select a regions of Netherlands where you want to provide your services
 
         button(@click="isModalOpen = true" class="bg-violet-800 hover:bg-violet-600 text-white px-4 py-2 rounded-md w-[7rem] text-xl") Save
-    div(ref="map" class=" h-[calc(40rem)] w-full z-10" id="map")
+    div(ref="map" class=" h-[calc(40rem)] w-full z-10 relative" id="map" )
+    div#regionDropdown(v-show="isRegionDropdown" class="absolute   w-[15rem] h-[20rem] bg-black  text-white z-50 p-4 rounded-md")
+        p(class="text-lg font-bold mb-2") Region:
+        //- contains settings for the region dropdown clicked on
+        div(class="flex items-center justify-between")
+            h1(class="text-lg font-bold") Region Settings
+            button(@click="regionDropdown = false" class="text-xl") x
+        div(class="flex items-center justify-between")
+           
+            select(v-model="selectedRegion" class="w-[10rem] h-[2rem] rounded-md border border-gray-300")
+                option(v-for="region in selectedProvinces" :key="region.id" :value="region.id") {{ region.name }}
+
+
 
    
     p(class="text-lg font-bold mb-2") Gemeenten:
@@ -45,6 +57,54 @@ const isSaving = ref(false);
 const isSaved = ref(false);
 const isSavingModal = ref(false);
 
+const isRegionDropdown = ref(false);
+let selectedLayer = null; // Keep track of the selected layer globally if not already defined
+
+const openRegionDropdown = (e, layer) => {
+  e.originalEvent.preventDefault(); // Correct place to call preventDefault
+
+  // Now handle the dropdown logic
+  selectedLayer = layer; // Select the layer
+
+  layer.setStyle({
+    fillColor: "blue", // Different color to indicate focus
+    color: "white",
+    weight: 3,
+  });
+
+  // Set the position of the dropdown menu
+  const regionDropdown = document.getElementById("regionDropdown");
+  regionDropdown.style.left = `${e.originalEvent.pageX}px`;
+  regionDropdown.style.top = `${e.originalEvent.pageY}px`;
+
+  isRegionDropdown.value = true; // Show the dropdown
+};
+
+const closeRegionDropdown = () => {
+  if (selectedLayer) {
+    // Reset the style of the selected layer
+    // check if selected LAyer is within the selectedProvinces and if not then reset the style if yes bring the style to red
+    const isSelected = selectedProvinces.value.some(
+      (province) => province.name === selectedLayer.feature.properties.NAME_2
+    );
+
+    if (!isSelected) {
+      selectedLayer.setStyle({
+        fillColor: "transparent",
+        color: "#3388ff",
+        weight: 2,
+      });
+    } else {
+      selectedLayer.setStyle({
+        fillColor: "red",
+        color: "white",
+        weight: 2,
+      });
+    }
+  }
+
+  isRegionDropdown.value = false; // Hide the dropdown
+};
 const onConfirmSave = async () => {
   isModalOpen.value = false;
 
@@ -86,8 +146,12 @@ const initMap = () => {
     },
     onEachFeature: function (feature, layer) {
       // Attach the click event handler to each region layer
-      layer.on("click", () => {
-        handleRegionClick(feature, layer);
+      layer.on({
+        click: (e) => handleRegionClick(feature, layer, e),
+        contextmenu: (e) => {
+          openRegionDropdown(e, layer);
+          e.originalEvent.preventDefault(); // Prevent default browser context menu
+        },
       });
     },
   });
@@ -129,38 +193,42 @@ useFetch(async () => {
 // Function to handle the region click event
 function handleRegionClick(clickedFeature, layer) {
   // Get the ID or unique identifier of the clicked region
-  const regionName = clickedFeature.properties.NAME_2; // Replace 'id' with the actual property that uniquely identifies each region
-
-  // Check if the region is already selected
-  const selectedIndex = selectedProvinces.value.findIndex(
-    (province) => province.name === regionName
-  );
-
-  if (selectedIndex !== -1) {
-    // If the region is already selected, remove it from the selectedProvinces array
-    selectedProvinces.value.splice(selectedIndex, 1);
-
-    // Reset the style to the default
-    layer.setStyle({
-      fillColor: "transparent",
-      color: "#3388ff",
-      weight: 2,
-    });
+  if (isRegionDropdown.value) {
+    closeRegionDropdown();
   } else {
-    // If the region is not selected, add it to the selectedProvinces array
-    const province = {
-      name: clickedFeature.properties.NAME_2,
-      id: clickedFeature.properties.GID_2,
-    };
+    const regionName = clickedFeature.properties.NAME_2; // Replace 'id' with the actual property that uniquely identifies each region
 
-    selectedProvinces.value.push(province);
+    // Check if the region is already selected
+    const selectedIndex = selectedProvinces.value.findIndex(
+      (province) => province.name === regionName
+    );
 
-    // Apply a new style to indicate selection
-    layer.setStyle({
-      fillColor: "red",
-      color: "white",
-      weight: 2,
-    });
+    if (selectedIndex !== -1) {
+      // If the region is already selected, remove it from the selectedProvinces array
+      selectedProvinces.value.splice(selectedIndex, 1);
+
+      // Reset the style to the default
+      layer.setStyle({
+        fillColor: "transparent",
+        color: "#3388ff",
+        weight: 2,
+      });
+    } else {
+      // If the region is not selected, add it to the selectedProvinces array
+      const province = {
+        name: clickedFeature.properties.NAME_2,
+        id: clickedFeature.properties.GID_2,
+      };
+
+      selectedProvinces.value.push(province);
+
+      // Apply a new style to indicate selection
+      layer.setStyle({
+        fillColor: "red",
+        color: "white",
+        weight: 2,
+      });
+    }
   }
 }
 

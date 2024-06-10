@@ -7,7 +7,7 @@ div(id="default" style="" class=" h-auto flex flex-row bg-[#eff3f6] justify-cent
       
       Sidebar(class="")
     
-    div( :class="isNavbarOff === true? '': 'mt-[3rem] lg:mt-[4rem]', route.path!=='/login'  && route.path!=='/signup/carrier' && route.path!=='/signup/arrow' ? 'lg:px-8  lg:ml-[23rem]' : ''" class=" w-full  h-auto min-h-[calc(100vh-4rem)]  " )
+    div( :class="isNavbarOff === true? '': 'mt-[3rem] lg:mt-[4rem]', route.path!=='/login'  && route.path!=='/sign-up' && route.path!=='/signup/arrow' ? 'lg:px-8  lg:ml-[23rem]' : ''" class=" w-full  h-auto min-h-[calc(100vh-4rem)]  " )
       <slot class="" />
       <!-- Footer(v-if="route.path!=='/login' && route.path!=='/signup'" class="mt-12") -->
 div(class="cursor cursor--small")
