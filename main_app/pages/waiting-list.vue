@@ -1,6 +1,11 @@
 <template lang="pug">
 
-div(class="w-[100vw] h-full lg:-ml-[23rem] -mt-[4rem] flex flex-col font-intern bg-white  pt-[2.5rem] md:pt-[4rem] lg:pt-[5rem] overflow-x-clip")
+div(class="w-[100vw] h-full lg:-ml-[22.1rem] -mt-[4rem] flex flex-col font-intern bg-white  pt-[2.5rem] md:pt-[4rem] lg:pt-[5rem] overflow-x-clip")
+    div(class=" flex")
+        div
+            button(@click="setLocale('en')") en
+            button(@click="setLocale('nl')") nl
+            p {{ $t('message') }}
     div(class="flex flex-col w-full h-auto ")
         nuxt-img(src="images/logoFT.png" class="mx-auto" alt="logo" width="200" height="200")
     div(class="w-full h-auto lg:mt-[4rem] flex flex-col lg:flex-row  font-intern lg:px-[15rem] py-[3rem] gap-x-[2rem] xl:gap-x-[8rem] gap-y-[2rem] justify-center")
@@ -169,6 +174,8 @@ import AccountingIcon from "~icons/mdi/account-cash-outline";
 import CustomerIcon from "~icons/ic/outline-people";
 import MoneyIcon from "~icons/healthicons/money-bag-outline";
 import PlatformIcon from "~icons/gg/website";
+
+const { setLocale } = useI18n();
 
 const scrollToForm = () => {
   window.scrollTo({

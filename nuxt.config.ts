@@ -1,18 +1,17 @@
 import { defineNuxtConfig } from "nuxt/config";
 import Icons from "unplugin-icons/vite";
-// import { IntlifyModuleOptions } from "@intlify/nuxt3";
+import ViteYaml from "@modyfi/vite-plugin-yaml";
 
-declare module "@nuxt/schema" {
-  // interface NuxtConfig {
-  //   intlify?: IntlifyModuleOptions;
-  // }
-}
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  // ssr: true,
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/content",
     "@nuxtjs/i18n",
+    "@formkit/auto-animate/nuxt",
+    "nuxt-og-image",
+    "@nuxt/image",
 
     [
       "@pinia/nuxt",
@@ -20,12 +19,26 @@ export default defineNuxtConfig({
         autoImports: ["defineStore", "acceptHMRUpdate", "useStore"],
       },
     ],
-    "nuxt-simple-sitemap",
-    "@pinia-plugin-persistedstate/nuxt",
-    // "@intlify/nuxt3",
-    "@nuxt/image-edge",
+    "@nuxtjs/robots",
+    "@nuxtjs/sitemap",
+    "pinia-plugin-persistedstate/nuxt",
+
     "unplugin-icons/nuxt",
   ],
+
+  future: {
+    compatibilityVersion: 4,
+  },
+  srcDir: "main_app",
+
+  i18n: {
+    vueI18n: "./i18n.config.ts", // if you are using custom path, default
+    locales: [
+      { code: "en", language: "en-US" },
+      { code: "nl", language: "nl-NL" },
+    ],
+    defaultLocale: "en",
+  },
 
   build: {
     transpile: ["@headlessui/vue", "@fawmi/vue-google-maps"],
@@ -56,14 +69,6 @@ export default defineNuxtConfig({
 
     // Render these routes on the client (SPA) { ssr: false },
   },
-  // intlify: {
-  //   localeDir: "locales",
-  //   vueI18n: {
-  //     locale: "en",
-  //     fallbackLocale: "en",
-  //     availableLocales: ["en", "pl"],
-  //   },
-  // },
 
   image: {
     domains: [process.env.FRONTEND_URL as string, "localhost:3000"],
@@ -101,7 +106,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["@/assets/css/styles.css"],
+  css: ["~~/assets/css/styles.css", "~~/assets/scss/main.scss"],
 
   vite: {
     plugins: [
@@ -109,7 +114,15 @@ export default defineNuxtConfig({
         // the feature below is experimental ⬇️
         autoInstall: true,
       }),
+      ViteYaml(),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern-compiler", // or "modern"
+        },
+      },
+    },
   },
 
   runtimeConfig: {
@@ -132,4 +145,6 @@ export default defineNuxtConfig({
       gtm_debug: process.env.GOOGLE_TAG_MANAGER_DEBUG,
     },
   },
+
+  compatibilityDate: "2024-11-23",
 });

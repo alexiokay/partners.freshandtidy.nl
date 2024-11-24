@@ -19,26 +19,24 @@ type Role = {
 };
 // @ts-ignore: Unreachable code error
 export const useUserStore = defineStore("User", {
-  state: () => {
-    return {
-      default_login_mode: "carrier",
-      username: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      avatar: "",
-      token: "",
-      isLogged: false, //TODO: false
-      is_activated: false,
-      activated_by: null,
-      accountType: "arrow-employee", //arrow_employee, carrier
-      role: {
-        id: null,
-        shortname: null,
-        name: null,
-      } as Role,
-    };
-  },
+  state: () => ({
+    default_login_mode: "carrier",
+    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    avatar: "",
+    token: "",
+    isLogged: false, //TODO: false
+    is_activated: false,
+    activated_by: null,
+    accountType: "arrow-employee", //arrow_employee, carrier
+    role: {
+      id: null,
+      shortname: null,
+      name: null,
+    } as Role,
+  }),
   getters: {
     getUser(state) {
       return {
@@ -136,7 +134,7 @@ export const useUserStore = defineStore("User", {
   },
 
   persist: {
-    storage: persistedState.cookies,
+    storage: piniaPluginPersistedstate.cookies(),
   },
 });
 

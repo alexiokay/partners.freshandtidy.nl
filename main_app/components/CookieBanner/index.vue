@@ -104,8 +104,8 @@ import {
   saveCookiesSettings,
   acceptAllCookies,
   rejectAllCookies,
-} from "~/funcionalities/cookiesBanner";
-import { disableScroll, enableScroll } from "~/funcionalities/scroll";
+} from "~/main_app/funcionalities/cookiesBanner";
+import { disableScroll, enableScroll } from "~/main_app/funcionalities/scroll";
 
 const necessaryStore = useNecessaryStore();
 

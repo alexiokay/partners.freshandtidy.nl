@@ -21,7 +21,7 @@ div
           div(class="flex gap-x-4 py-1 items-center")
                 
                 button(@click="data.recurrence = !data.recurrence" :class="data.recurrence === true? 'bg-blue-500 text-white border-blue-700': 'bg-white border-black'" class="text-xl  border-[1px]  text-black  rounded-full px-4 py-1" ) Recurrence
-                button(@click="data.one_time = !data.one_time" :class="data.one_time === true? 'bg-blue-500 text-white border-blue-700': 'bg-white border-black'"  class="text-xl  border-[1px]  text-black border-black  rounded-full px-4 py-1") One time
+                button( @click="data.one_time = !data.one_time" :class="data.one_time === true? 'bg-blue-500 text-white border-blue-700': 'bg-white border-black'"  class="text-xl  border-[1px]  text-black border-black  rounded-full px-4 py-1") One time
                 p(class="font-semibold ml-auto") Instant booking
                 Switch(
                   v-model="data.instant"

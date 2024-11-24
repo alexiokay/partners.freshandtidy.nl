@@ -18,7 +18,7 @@ div
 </template>
 
 <script setup lang="ts">
-import { disableScroll, enableScroll } from "~/funcionalities/scroll";
+import { disableScroll, enableScroll } from "~/main_app/funcionalities/scroll";
 
 const props = defineProps<{
   isOpen: boolean;

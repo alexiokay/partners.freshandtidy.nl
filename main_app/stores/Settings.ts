@@ -1,8 +1,4 @@
-import { defineStore } from "pinia";
-
 import { createPinia } from "pinia";
-import uniqid from "uniqid";
-import { useStorage } from "@vueuse/core";
 
 const pinia = createPinia();
 
@@ -70,7 +66,7 @@ export const useSettingsStore = defineStore("settingsStore", {
     },
   },
   persist: {
-    storage: persistedState.sessionStorage,
+    storage: piniaPluginPersistedstate.sessionStorage,
   },
   // other options...
 });

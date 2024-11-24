@@ -1,11 +1,9 @@
-import { defineStore } from "pinia";
-import Cookies from "js-cookie";
 import { createPinia } from "pinia";
-import uniqid from "uniqid";
 import { useStorage } from "@vueuse/core";
+import { useUserStore } from "./User";
+
 import { Timeslot } from "@/types/timeslot";
 const pinia = createPinia();
-import { useUserStore } from "./User";
 export const useMainStore = defineStore("mainStore", {
   state: () => {
     return {
@@ -154,7 +152,7 @@ export const useMainStore = defineStore("mainStore", {
     },
   },
   persist: {
-    storage: persistedState.sessionStorage,
+    storage: piniaPluginPersistedstate.sessionStorage,
   },
   // other options...
 });

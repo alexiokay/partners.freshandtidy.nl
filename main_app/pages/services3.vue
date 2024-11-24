@@ -1,138 +1,44 @@
 <template lang="pug">
-div(class="w-full flex flex-col px-10 h-full  relative overflow-visible md:pt-[3rem] gap-y-4 rounded-xl ")
-  div(class="w-full px-16")
-    div(class="flex w-full  h-[10rem] bg-white  rounded-xl shadow-sm p-6 gap-x-6 border-[#e4eaf1] border-[1px] ")
-      div(class="w-full h-10 flex gap-x-4 items-center ")
-        p Price per kilometer (EUR) 
-          p(class="underline") [medium 1,12 eur]
-        input(class="w-1/4 h-[2.5rem] border-[1px] focus:outline-none px-2 py-1" value='1,12')
-        button(class="bg-[#53c0fbfa] border-[1px] text-white px-4 py-2 rounded-xl w-[10rem] h-full text-lg font-medium ") Save
-          
-  div(class="w-full flex flex-col px-10 h-full  relative overflow-visible md:pt-[3rem] gap-y-4 ")
-    h1(class="w-full text-center text-5xl font-semibold") Your Services
-    ModalEditService(:isOpen="isEditMode" :data="editSubscriptionData" @confirm="isEditMode = !isEditMode" @close="isEditMode = !isEditMode" )
-    
+div(class="w-full flex px-10 h-auto  relative overflow-visible")
+    div(class="w-[30%] flex flex-wrap justify-center md:justify-between gap-y-[2.6rem] mt-[3rem] px-8 ")
+        Service(@click="isEditMode = !isEditMode" @select="selectMenu"  :selected="selected" title="HOUSE CLEANING" desc="We clean and care  for variety of hard surface flooring at many places of business.")
+        Service(@select="selectMenu" title="KITCHEN CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-13.png")
+        Service(@select="selectMenu"  title="FLOOR CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-23.png")
+        Service(@select="selectMenu"  title="BATHROOM CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-33.png")
+        Service(@select="selectMenu"  title="OFFICE CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-43.png")
+        Service(@select="selectMenu"  title="CAR CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-53.png")
+        Service(@select="selectMenu"  title="WINDOW CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-13.png")
+        Service(@select="selectMenu"  title="POWER WASHING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-13.png")
+        Service(@select="selectMenu"  title="UPHOLSTERY CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-13.png")
+        Service(@select="selectMenu"  title="GARDEN MAINTENANCE" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business." image="icons/icon-13.png")
+        Service(@select="selectMenu"  title="OVEN AND APPLIANCE CLEANING" :selected="selected" desc="We clean and care  for variety of hard surface flooring at many places of business.")
 
-    div(class="w-full flex flex-col justify-center md:justify-between gap-y-[2.6rem] py-4 mt-[3rem] px-8 after:flex-auto gap-x-[1.3rem]  overflow-y-scroll ")
-        AddService2
-        Service2(v-for="(service,index) in services" :key="index"  @edit="editService(service)" @select="selectMenu" :data="service" :selected="selected" :instant="service.instant" :one_time="service.one_time" :recurrence="service.recurrence"  )
-          template(v-slot:icon)
-            nuxt-img(:src="service.icon" width="190" h="45" class="w-[52%] md:w-auto h-auto md:h-[7rem] ")
+
 
             
-   
+    div(class="w-3/4 gap-y-4 flex flex-col text-lg bg-white h-full sticky self-auto top-[8.7rem] px-6 py-4 rounded-3xl shadow-[0_1px_60px_-15px_rgba(0,0,0,0.1)]" )
+        div(class="flex gap-x-4 items-center")
+            p Allowed Services: 
+            .recurring(class="bg-[#2da9db] text-white px-2 py-1 rounded-md") Recurring
+            .one-time(class="bg-[#2da9db] text-white px-2 py-1 rounded-md") One Time
+        div.instant-booking(class="flex gap-x-4 items-center")
+            p Instant Booking: 
+            input(type="checkbox" name="" id="" class="w-6 h-6")
           
-    
-    //- transition(:name="animationName")
-    //-     div(v-show="isEditMode" @click="runAnimation"  class="w-full h-full bg-[#707070] fixed top-0 left-0 px-12  ")
+
+    transition(:name="animationName")
+        div(v-show="isEditMode" @click="runAnimation"  class="w-full h-full bg-[#707070] fixed top-0 left-0 px-12")
     
 </template>
 
 <script setup lang="ts">
-import { Switch } from "@headlessui/vue";
+import { on } from "events";
 
-const editSubscriptionData = ref({});
 const isEditMode = ref(false);
 const animationName = ref("");
 const selected = ref("house cleaning");
-const instantBooking = ref(false);
 // randomly generate 'down' or 'up' or left or right for the animation
 
-const services = ref([
-  {
-    title: "House",
-    desc: "We clean and care  for variety of hard surface flooring at many places of business.",
-    instant: true,
-    one_time: true,
-    recurrence: true,
-    icon: "icons/icon-13.png",
-  },
-  {
-    title: "Kitchen",
-    desc: "",
-    instant: true,
-    one_time: true,
-    recurrence: false,
-    icon: "icons/icon-23.png",
-  },
-  {
-    title: "Floor",
-    desc: "",
-    instant: false,
-    one_time: true,
-    recurrence: true,
-    icon: "icons/icon-33.png",
-  },
-  {
-    title: "Bathroom",
-    desc: "",
-    instant: true,
-    one_time: false,
-    recurrence: true,
-    icon: "icons/icon-43.png",
-  },
-  {
-    title: "Office",
-    desc: "",
-    instant: true,
-    one_time: true,
-    recurrence: true,
-    icon: "icons/icon-53.png",
-  },
-  {
-    title: "Car",
-    desc: "",
-    instant: true,
-    one_time: true,
-    recurrence: true,
-    icon: "icons/icon-53.png",
-  },
-  {
-    title: "Window",
-    desc: "",
-    instant: true,
-    one_time: true,
-    recurrence: true,
-    icon: "icons/icon-53.png",
-  },
-  {
-    title: "Power Washing",
-    desc: "",
-    instant: true,
-    one_time: true,
-    recurrence: true,
-    icon: "icons/icon-53.png",
-  },
-  {
-    title: "Upholstery",
-    desc: "",
-    instant: true,
-    one_time: true,
-    recurrence: true,
-    icon: "icons/icon-53.png",
-  },
-  {
-    title: "Garden Maintenance",
-    desc: "",
-    instant: true,
-    one_time: true,
-    recurrence: true,
-    icon: "icons/icon-53.png",
-  },
-  {
-    title: "Oven and Appliance",
-    desc: "",
-    instant: true,
-    one_time: true,
-    recurrence: true,
-    icon: "icons/icon-53.png",
-  },
-]);
-
-const editService = (data) => {
-  isEditMode.value = true;
-  editSubscriptionData.value = data;
-};
 const selectMenu = (title: string) => {
   selected.value = title;
   scrollBack(document.getElementById(title.replace(/ /g, "-"))!);

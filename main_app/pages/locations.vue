@@ -1,12 +1,13 @@
 <template lang="pug">
-div(class="md:pt-[3rem] " )
-    h1(class="w-full text-center text-5xl font-medium") Your Area
-   
-    div(class="flex w-full my-8 mt-12 px-8 text-xl justify-between")
+div(class=" -mt-[2rem] md:pt-[2rem] " )
+    div(class="flex flex-col gap-y-4")
+      h1(class="w-full text-center text-3xl lg:text-5xl font-medium") Your Area
+    
+      div(class="flex flex-col sm:flex-row w-full mb-4  px-8 text-lg justify-between gap-x-4 gap-y-3")
 
-        p Select a regions of Netherlands where you want to provide your services
+          p Select a regions of Netherlands where you want to provide your services
 
-        button(@click="isModalOpen = true" class="bg-violet-800 hover:bg-violet-600 text-white px-4 py-2 rounded-md w-[7rem] text-xl") Save
+          button(@click="isModalOpen = true" class="bg-violet-800 hover:bg-violet-600 text-white px-4 py-2 rounded-md sm:w-[7rem] text-xl h-auto w-full") Save
     div(ref="map" class=" h-[calc(40rem)] w-full z-10 relative" id="map" )
     div#regionDropdown(v-show="isRegionDropdown" class="absolute   w-[15rem] h-[20rem] bg-black  text-white z-50 p-4 rounded-md")
         p(class="text-lg font-bold mb-2") Region:
@@ -33,8 +34,8 @@ div(class="md:pt-[3rem] " )
 <script setup lang="ts">
 import { nextTick } from "vue";
 import "leaflet/dist/leaflet.css";
-import netherlandsGeoJSON from "@/assets/netherlands2.json"; // Replace with the path to your Netherlands GeoJSON file
-import NlCities from "@/assets/nl-cities-all.json";
+import netherlandsGeoJSON from "~~/assets/netherlands2.json"; // Replace with the path to your Netherlands GeoJSON file
+import NlCities from "~~/assets/nl-cities-all.json";
 import { useUserStore } from "@/stores/User";
 import {
   polygon,

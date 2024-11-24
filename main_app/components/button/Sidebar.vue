@@ -1,5 +1,5 @@
 <template lang="pug">
-NuxtLink.menu-button(:to="props.to" :class="isActive? 'font-bold': ''" class="relative whitespace-nowrap text-lg text-ellipsis flex w-full group justify-between rounded-md  hover:bg-slate-100 h-[1.9rem] md:h-[2.7rem] px-4 py-2 items-center hover:cursor-pointer")
+NuxtLink.menu-button(:to="props.to" :class="isActive(props.to)? 'font-bold': ''" class="select-none relative whitespace-nowrap text-lg text-ellipsis flex w-full group justify-between rounded-md  hover:bg-slate-100 h-[1.9rem] md:h-[2.7rem] px-4 py-2 items-center hover:cursor-pointer")
     div(class="flex space-x-4")
         slot(name="icon")
         p {{ props.text }}
@@ -7,7 +7,7 @@ NuxtLink.menu-button(:to="props.to" :class="isActive? 'font-bold': ''" class="re
         p() {{props.notifications_count}}
 
     slot(name="icon-2")
-    .active-pointer(v-if="isActive" class="absolute -left-[3.5rem]  w-[0.65rem] h-11 bg-violet-600 rounded-r-md")
+    .active-pointer(v-if="isActive(props.to)" class="absolute -left-[2rem]  w-[0.75rem] h-11 bg-violet-600 rounded-r-md")
 
 </template>
 
@@ -19,7 +19,7 @@ const props = defineProps({
   },
   to: {
     type: String,
-    required: false,
+    required: true,
   },
 
   notifications_count: {
@@ -28,15 +28,7 @@ const props = defineProps({
   },
 });
 
-const route = useRoute();
-const isActive = computed(() => {
-  console.log("route");
-  console.log(route.path);
-  const path = route.path.split("/");
-  return route.path.split("/")[path.length - 1] === props.text.toLowerCase()
-    ? true
-    : false;
-});
+const { isActive } = useActiveRoute(); // Import and use the isActive function
 </script>
 
 <style lang="scss">
@@ -47,10 +39,10 @@ const isActive = computed(() => {
 }
 @keyframes slideIn {
   0% {
-    transform: translateX(-2rem);
+    transform: translateX(-2.2rem);
   }
   100% {
-    transform: translateX(-0.6rem);
+    transform: translateX(-0.7rem);
   }
 }
 

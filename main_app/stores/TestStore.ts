@@ -1,7 +1,4 @@
-import { defineStore } from "pinia";
-import Cookies from "js-cookie";
 import { createPinia } from "pinia";
-import piniaPersist from "pinia-plugin-persist";
 import uniqid from "uniqid";
 import { useStorage } from "@vueuse/core";
 
@@ -10,7 +7,6 @@ type Blueprint = {
   text: string;
 };
 const pinia = createPinia();
-pinia.use(piniaPersist);
 
 export type Tag = {
   id: any;

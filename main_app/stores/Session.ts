@@ -1,4 +1,3 @@
-import { defineStore } from "pinia";
 import { createPinia } from "pinia";
 
 const pinia = createPinia();
@@ -28,7 +27,7 @@ export const useSessionStore = defineStore("User", {
     },
   },
   persist: {
-    storage: persistedState.sessionStorage,
+    storage: piniaPluginPersistedstate.sessionStorage,
     // only save isCookiesSet as cookie
   },
 });
