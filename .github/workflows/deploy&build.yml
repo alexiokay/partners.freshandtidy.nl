@@ -1,0 +1,42 @@
+name: Deploy and Build
+
+on:
+  push:
+    branches: -layers-dev
+
+jobs:
+  deploy-web-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Web App
+        run: pnpm --filter apps/web--app run build
+
+      - name: Deploy to Render
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: # Use a Render deployment script here
+
+  build-mobile-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Tauri Prerequisites
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+          sudo apt-get install libwebkit2gtk-4.0-dev build-essential
+
+      - name: Build Mobile App
+        run: pnpm --filter apps/tauri-mobile run build

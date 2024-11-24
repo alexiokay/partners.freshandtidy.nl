@@ -14,5 +14,13 @@
     "nuxt": "^3.14.1592",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/bxs": "^1.2.1",
+    "@iconify-json/fluent": "^1.2.7",
+    "@iconify-json/gg": "^1.2.1",
+    "@iconify-json/healthicons": "^1.2.1",
+    "@iconify-json/ic": "^1.2.1",
+    "@iconify-json/mdi": "^1.2.1"
   }
 }

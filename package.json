@@ -11,9 +11,15 @@
     "start:mobile": "pnpm --filter tauri-mobile run dev",
     "build:web": "pnpm --filter web-app run build",
     "build:mobile": "pnpm --filter tauri-mobile run build",
+    "generate:web": "pnpm --filter web-app run generate",
+    "generate:mobile": "pnpm --filter tauri-mobile run generate",
     "clean:web": "pnpm --filter web-app run clean",
     "clean:mobile": "pnpm --filter tauri-mobile run clean"
   },
+  "workspaces": [
+    "layers/*",
+    "apps/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
