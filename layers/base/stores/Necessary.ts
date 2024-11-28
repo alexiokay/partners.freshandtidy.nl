@@ -1,6 +1,3 @@
-import { createPinia } from "pinia";
-
-const pinia = createPinia();
 import { useUserStore } from "./User";
 export const useNecessaryStore = defineStore("necessaryStore", {
   state: () => {
@@ -31,5 +28,3 @@ export const useNecessaryStore = defineStore("necessaryStore", {
   },
   // other options...
 });
-
-export default pinia;

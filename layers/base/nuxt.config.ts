@@ -1,6 +1,9 @@
 import { defineNuxtConfig } from "nuxt/config";
 import Icons from "unplugin-icons/vite";
 import ViteYaml from "@modyfi/vite-plugin-yaml";
+import { createResolver } from "@nuxt/kit";
+
+const { resolve } = createResolver(import.meta.url);
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -12,7 +15,6 @@ export default defineNuxtConfig({
     "@formkit/auto-animate/nuxt",
     "nuxt-og-image",
     "@nuxt/image",
-
     [
       "@pinia/nuxt",
       {
@@ -22,13 +24,13 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
     "pinia-plugin-persistedstate/nuxt",
-
     "unplugin-icons/nuxt",
   ],
 
   future: {
     compatibilityVersion: 4,
   },
+  alias: { "@": resolve("./") },
 
   i18n: {
     vueI18n: "./i18n.config.ts", // if you are using custom path, default
@@ -70,7 +72,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: [process.env.FRONTEND_URL as string, "localhost:3000"],
+    domains: [process.env.FRONTEND_URL as string, "localhost:3001"],
     format: ["webp"],
     provider: "ipx",
     ipx: {

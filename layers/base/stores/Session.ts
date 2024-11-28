@@ -1,7 +1,3 @@
-import { createPinia } from "pinia";
-
-const pinia = createPinia();
-
 // @ts-ignore: Unreachable code error
 export const useSessionStore = defineStore("User", {
   state: () => {
@@ -31,5 +27,3 @@ export const useSessionStore = defineStore("User", {
     // only save isCookiesSet as cookie
   },
 });
-
-export default pinia;

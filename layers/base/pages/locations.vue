@@ -34,8 +34,8 @@ div(class=" -mt-[2rem] md:pt-[2rem] " )
 <script setup lang="ts">
 import { nextTick } from "vue";
 import "leaflet/dist/leaflet.css";
-import netherlandsGeoJSON from "~~/assets/netherlands2.json"; // Replace with the path to your Netherlands GeoJSON file
-import NlCities from "~~/assets/nl-cities-all.json";
+import netherlandsGeoJSON from "../assets/netherlands2.json"; // Replace with the path to your Netherlands GeoJSON file
+import NlCities from "../assets/nl-cities-all.json";
 import { useUserStore } from "@/stores/User";
 import {
   polygon,
@@ -86,7 +86,7 @@ const closeRegionDropdown = () => {
     // Reset the style of the selected layer
     // check if selected LAyer is within the selectedProvinces and if not then reset the style if yes bring the style to red
     const isSelected = selectedProvinces.value.some(
-      (province) => province.name === selectedLayer.feature.properties.NAME_2
+      (province) => province.name === selectedLayer.feature.properties.NAME_2,
     );
 
     if (!isSelected) {
@@ -173,7 +173,7 @@ const initMap = () => {
       attribution:
         'Kaartgegevens &copy; <a href="https://www.kadaster.nl">Kadaster</a>',
       transparent: true, // Set the tile layer to use a transparent background
-    }
+    },
   ).addTo(map.value);
   map.value.on("click", (e) => {
     const lat = e.latlng.lat;
@@ -201,7 +201,7 @@ function handleRegionClick(clickedFeature, layer) {
 
     // Check if the region is already selected
     const selectedIndex = selectedProvinces.value.findIndex(
-      (province) => province.name === regionName
+      (province) => province.name === regionName,
     );
 
     if (selectedIndex !== -1) {
@@ -253,7 +253,7 @@ onMounted(() => {
       const regionId = layer.feature.properties.NAME_2;
 
       const isSelected = selectedProvinces.value.some(
-        (province) => province.name === regionId
+        (province) => province.name === regionId,
       );
 
       if (isSelected) {

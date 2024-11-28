@@ -1,12 +1,11 @@
-import { createPinia } from "pinia";
 import uniqid from "uniqid";
 import { useStorage } from "@vueuse/core";
+import { defineStore } from "pinia";
 
 type Blueprint = {
   title: string;
   text: string;
 };
-const pinia = createPinia();
 
 export type Tag = {
   id: any;
@@ -71,5 +70,3 @@ export const useStore = defineStore("chatsorted", {
 
   // other options...
 });
-
-export default pinia;

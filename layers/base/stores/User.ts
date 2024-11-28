@@ -1,16 +1,4 @@
 import { defineStore } from "pinia";
-import { createPinia } from "pinia";
-
-const pinia = createPinia();
-type Carrier = {
-  id: number | null;
-  name: string | null;
-  phone: string | null;
-  city: string | null;
-  icon_url: string | null;
-  is_activated: boolean | null;
-  activated_by: string | null;
-};
 
 type Role = {
   id: number | null;
@@ -88,6 +76,7 @@ export const useUserStore = defineStore("User", {
       this.isLogged = bool;
     },
     logout() {
+      console.log("logging out");
       this.username = "";
       this.email = "";
       this.token = "";
@@ -137,5 +126,3 @@ export const useUserStore = defineStore("User", {
     storage: piniaPluginPersistedstate.cookies(),
   },
 });
-
-export default pinia;

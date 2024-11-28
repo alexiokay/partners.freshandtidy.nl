@@ -1,3 +1,5 @@
+// const { createThemes } = require("tw-colors");
+
 module.exports = {
   darkMode: "class", // or 'media' or 'false'
   content: [
@@ -81,5 +83,10 @@ module.exports = {
       "3xl": "1920px",
     },
   },
-  plugins: [],
+  plugins: [
+    // createThemes({
+    //   "default-light": {},
+    //   "default-dark": {},
+    // }),
+  ],
 };

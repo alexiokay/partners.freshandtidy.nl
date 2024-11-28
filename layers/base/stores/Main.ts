@@ -1,9 +1,7 @@
-import { createPinia } from "pinia";
 import { useStorage } from "@vueuse/core";
 import { useUserStore } from "./User";
 
 import { Timeslot } from "@/types/timeslot";
-const pinia = createPinia();
 export const useMainStore = defineStore("mainStore", {
   state: () => {
     return {
@@ -93,7 +91,7 @@ export const useMainStore = defineStore("mainStore", {
       const dateIndex = this.dates.findIndex((date) => date.id === dateId);
 
       const timeslotIndex = this.dates[dateIndex].timeslots.findIndex(
-        (timeslot: Timeslot) => timeslot.id === timeslotId
+        (timeslot: Timeslot) => timeslot.id === timeslotId,
       );
       const timeslot = this.dates[dateIndex].timeslots[timeslotIndex];
 
@@ -119,7 +117,7 @@ export const useMainStore = defineStore("mainStore", {
     removeReservation(reservationId: any) {
       try {
         const index = this.reservations.findIndex(
-          (reservation) => reservation.id === reservationId
+          (reservation) => reservation.id === reservationId,
         );
         this.reservations.splice(index, 1);
         console.log("removed reservation ");
@@ -132,7 +130,7 @@ export const useMainStore = defineStore("mainStore", {
       console.log("updating reservation ");
       try {
         const index = this.reservations.findIndex(
-          (reservation) => reservation.id === reservation.id
+          (reservation) => reservation.id === reservation.id,
         );
         this.reservations[index] = reservation;
         console.log(this.reservations[index]);
@@ -156,5 +154,3 @@ export const useMainStore = defineStore("mainStore", {
   },
   // other options...
 });
-
-export default pinia;

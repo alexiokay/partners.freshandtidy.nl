@@ -2,10 +2,52 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  extends: [["../layers/base", { install: true }]],
+  extends: [["../../layers/base", { install: true }]],
   future: {
     compatibilityVersion: 4,
   },
+  ssr: false,
+
+  build: {
+    transpile: ["@tauri-apps/api"],
+  },
+
+  routeRules: {
+    "/": { prerender: true },
+    "*": { prerender: true },
+    /* do the same for all routes used */
+  },
+
+  ogImage: { enabled: false },
+
+  // ogImage: { enabled: false },
+
+  //!tauri
+  // build: {
+  //   distDir: "../.output/public",
+  // },
+  devServer: {
+    host: "localhost",
+    port: 3001,
+  },
+
+  hooks: {
+    "vite:extend": function ({ config }) {
+      if (config.server && config.server.hmr && config.server.hmr !== true) {
+        config.server.hmr.protocol = "ws";
+        // config.server.hmr.host = "0.0.0.0";
+        config.server.hmr.port = 3001;
+        config.server.strictPort = true;
+      }
+    },
+  },
+
+  vite: {
+    clearScreen: false,
+    envPrefix: ["VITE_", "TAURI_"],
+  },
+
+  // !tauri
 
   runtimeConfig: {
     GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,

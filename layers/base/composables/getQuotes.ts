@@ -8,8 +8,8 @@ export const getQuotes = async (token: string) => {
     },
   } as any;
   let quotes = await useFetch(
-    `${config.public.API_URL}api/v1/quotes/`,
-    options
+    `${config.public.API_URL}api/v1/all-quotes/`,
+    options,
   ).then((res) => {
     const data: any = res.data.value;
 

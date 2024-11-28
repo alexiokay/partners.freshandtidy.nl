@@ -1,6 +1,6 @@
 <template lang="pug">
 
-div(class="w-[100vw] h-full lg:-ml-[22.1rem] -mt-[4rem] flex flex-col font-intern bg-white  pt-[2.5rem] md:pt-[4rem] lg:pt-[5rem] overflow-x-clip")
+div(class="w-full h-full  -mt-[4rem] flex flex-col font-intern bg-white  pt-[2.5rem] md:pt-[4rem] lg:pt-[5rem] overflow-x-clip")
     div(class=" flex")
         div
             button(@click="setLocale('en')") en
@@ -184,14 +184,17 @@ const scrollToForm = () => {
   });
 };
 
+definePageMeta({
+  // or middleware: 'auth'
+  isSidebarOff: true,
+});
+
 useSeoMeta({
   title: "FreshAndTidy | Waiting List",
   ogTitle: "FreshAndTidy | Waiting List",
   description: "Waiting List",
   ogDescription: "Waiting List",
-  image: "https://partners.freshandtidy.nl/images/demo/wlimage.png",
   ogImage: "https://partners.freshandtidy.nl/images/demo/wlimage.png",
-  url: "https://partners.freshandtidy.nl/wlimage.png",
   twitterImage: "https://partners.freshandtidy.nl/images/demo/wlimage.png",
 });
 </script>

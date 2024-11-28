@@ -1,0 +1,43 @@
+{
+  "name": "@company/lint",
+  "version": "3.0.0",
+  "private": true,
+  "description": "",
+  "type": "module",
+  "exports": {
+    "./eslint": {
+      "import": "./src/eslint/index.mjs"
+    },
+    "./lint-staged": {
+      "import": "./src/lint-staged/index.mjs"
+    },
+    "./stylelint": {
+      "import": "./src/stylelint/index.mjs"
+    }
+  },
+  "scripts": {
+    "--------------- LINT ---------------": "",
+    "lint:js": "eslint --cache .",
+    "lint:js:quiet": "pnpm lint:js --quiet",
+    "lint:js:fix": "pnpm lint:js --fix",
+    "lint": "pnpm lint:js",
+    "lint:quiet": "pnpm lint:js:quiet",
+    "lintfix": "pnpm lint:js:fix"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "0.3.12",
+    "@unocss/eslint-config": "0.60.2",
+    "eslint": "9.2.0",
+    "eslint-config-flat-gitignore": "0.1.5",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-config-turbo": "1.13.3",
+    "eslint-import-resolver-custom-alias": "1.3.2",
+    "eslint-plugin-prettier": "5.1.3",
+    "eslint-plugin-vuejs-accessibility": "2.3.0",
+    "prettier": "3.2.5",
+    "vite-plugin-eslint2": "4.4.0"
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}

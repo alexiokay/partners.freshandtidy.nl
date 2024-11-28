@@ -1,7 +1,3 @@
-import { createPinia } from "pinia";
-
-const pinia = createPinia();
-
 type WorkableTimes = {
   from: string;
   to: string;
@@ -70,5 +66,3 @@ export const useSettingsStore = defineStore("settingsStore", {
   },
   // other options...
 });
-
-export default pinia;

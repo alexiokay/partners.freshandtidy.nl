@@ -1,6 +1,6 @@
 <template>
   <Html :lang="locale">
-    <NuxtLayout name="default">
+    <NuxtLayout>
       <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
       <NuxtPage class="" />
     </NuxtLayout>

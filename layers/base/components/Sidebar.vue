@@ -9,8 +9,8 @@ div#sidebar(:class="is_sidebar_open ? 'hide-left' : 'show-right'" class="fixed w
     
     div#sidebar-header(class="relative w-full px-3 flex flex-col h-auto justify-between items-center gap-y-2 my-6")
         nuxt-img(src="images/girl.webp" width="100" height="100" format="webp" class="cover rounded-full aspect-square object-cover")
-        p(class="text-2xl font-medium w-full text-center flex flex-col") Alexi 
-          span Pawelec
+        p(class="text-2xl font-medium w-full text-center flex flex-col") {{ userStore.firstName }}
+          span {{ userStore.lastName }}
     div#sidebar-toggle(class="md:hidden absolute top-1 -right-7 p-2 w-11 h-11 rounded-full bg-[#FAF9FC] flex flex-row justify-center items-center")
         div(@click="is_sidebar_open = !is_sidebar_open" class=" hover:cursor-pointer w-full h-full bg-slate-200 rounded-full")
             ArrowIcon(:class="!is_sidebar_open? 'animate-spinOnceBack': 'animate-spinOnce '" class="w-full h-full  ")
@@ -131,6 +131,10 @@ import CustomersIcon from "~icons/fluent/person-accounts-24-regular";
 import InvoicesIcon from "~icons/fluent/document-error-20-regular";
 import QuotesIcon from "~icons/clarity/contract-line";
 
+// import { useUserStore } from "../stores/User";
+import { useMainStore } from "@/stores/Main";
+import { useUserStore } from "@/stores/User";
+
 const sidebarButtons = ref([
   { text: "Quotes", to: "/quotes", icon: QuotesIcon, notifications_count: 0 },
   {
@@ -208,8 +212,6 @@ const toggleSidebar = () => {
   is_sidebar_open.value = !is_sidebar_open;
 };
 
-import { useMainStore } from "@/stores/Main";
-import { useUserStore } from "@/stores/User";
 const userStore = useUserStore();
 const mainStore = useMainStore();
 
@@ -304,10 +306,14 @@ function leave(el, done) {
 }
 
 .submenu-enter-active {
-  transition: opacity 0.2s ease, height 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    height 0.2s ease;
 }
 
 .submenu-leave-active {
-  transition: opacity 0.2s ease, height 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    height 0.2s ease;
 }
 </style>

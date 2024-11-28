@@ -5,7 +5,7 @@ div(id="default" style="" class=" h-auto flex flex-row bg-[#eff3f6] justify-cent
     .navigation(v-if="userStore.isLogged" class="  top-0 z-40")
      
       
-      Sidebar(class="")
+      Sidebar(class="" )
     
     div( :class="isNavbarOff === true? '': 'mt-[3rem] lg:mt-[4rem]', route.path!=='/login'  && route.path!=='/sign-up' && route.path!=='/signup/arrow' ? 'lg:px-8  lg:ml-[23rem]' : ''" class=" w-full  h-auto min-h-[calc(100vh-4rem)]  " )
       <slot class="" />
@@ -27,6 +27,9 @@ const route = useRoute();
 
 const isNavbarOff = computed(() => {
   return route.meta.isNavbarOff;
+});
+const isSidebarOff = computed(() => {
+  return route.meta.isSidebarOff;
 });
 const sendEmail = () => {
   document.location = "mailto:graphicdesigner@gmail.com";

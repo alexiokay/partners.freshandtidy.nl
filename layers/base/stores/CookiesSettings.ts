@@ -1,7 +1,5 @@
-import { createPinia } from "pinia";
-
 type Layout = "default" | "accounts";
-const pinia = createPinia();
+
 import { useUserStore } from "./User";
 export const useCookiesStore = defineStore("cookiesStore", {
   state: () => {
@@ -49,5 +47,3 @@ export const useCookiesStore = defineStore("cookiesStore", {
   },
   // other options...
 });
-
-export default pinia;

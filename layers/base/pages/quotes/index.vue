@@ -170,7 +170,7 @@ const quotes = ref(
   await getQuotes(userStore.getToken).then((res) => {
     res[0].selected = true;
     return res;
-  })
+  }),
 );
 console.log(quotes);
 </script>
