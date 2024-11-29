@@ -1,5 +1,5 @@
 <template lang="pug">
-    div(id="main-app" style="" class="theme-default  h-auto flex flex-row bg-[#eff3f6] justify-center items-start w-full  ")
+    div(id="main-app" style="" class="theme-default  h-auto flex flex-row bg-[#eff3f6] justify-center items-start w-full   ")
         div#overlay(class="absolute overlaying top-0 left-0 w-full h-screen bg-black opacity-40 z-10 hidden-overlay")
         Sidebar(class="" )
         

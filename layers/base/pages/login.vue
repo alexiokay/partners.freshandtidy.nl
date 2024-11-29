@@ -1,18 +1,18 @@
 <template lang="pug">
-div(class=" w-full h-screen  flex flex-col lg:flex-row  ")
-  div(class="lg:w-[45%]  w-full h-full flex flex-col px-6 lg:px-[5rem] items-center ")
+div(class=" w-full h-auto min-h-screen flex flex-col lg:flex-row overflow-visible ")
+  div(class="lg:w-[45%]  w-full h-full flex flex-col px-6 md:px-0 xl:px-[1rem] 3xl:px-[5rem] items-center ")
 
           
-    div(class="flex  flex-col md:px-8 items-center mt-[3rem] lg:mt-[8rem] gap-y-6 w-full h-auto justify-start ")
+    div(class="flex  flex-col md:px-8 items-center mt-[3rem] lg:mt-[8rem] gap-y-6 w-full h-auto justify-start mb-12  ")
       p(class="text-5xl font-bold font-publicsans") Welcome back!
       p(class="text-xl text-gray-800") Login to your dashboard to manage, track and view generated leads and more.
-      div.email(class=" w-full text-xl flex flex-col gap-y-3 mt-16")
-        p(class="font-roboto") Email
-        input(@keydown.enter="login" type="text" v-model="email" class="w-full h-[4rem] border-2  border-gray-500 rounded-full px-4")
+      div.email(class=" w-full text-xl flex flex-col gap-y-3 mt-8 lg:mt-16")
+        p(class="font-roboto ") Email
+        LoginV2Input(@keydown.enter="login"  v-model="email" type="email" placeholder="email")
       div.password(class="w-full relative  text-xl flex flex-col gap-y-3")
         p(class="font-roboto") Password
         div(class="relative")
-          input(@keydown.enter="login" type="password" v-model="password" class="w-full h-[4rem] border-2  border-gray-500 rounded-full px-4" id="password-input")
+          LoginV2Input(@keydown.enter="login"  v-model="password" type="password" placeholder="password" id="password-input")
           button(type="button" class="absolute right-2 top-1/2 transform -translate-y-1/2   bg-white px-2 rounded-md ", id="password-toggle")
               HideIcon(v-if="!is_password_visible" class="w-6 h-6")
               ShowIcon(v-else class="w-6 h-6")
@@ -31,9 +31,9 @@ div(class=" w-full h-screen  flex flex-col lg:flex-row  ")
           AppleIcon(class="w-10 h-10")
         button(class="w-auto h-auto text-xl p-5 rounded-full bg-black text-white flex flex-row justify-center items-center gap-x-2")
           FacebookIcon(class="w-10 h-10")
-      p(class="absolute bottom-6 text-lg") Not a member? 
+      p(class="text-lg") Not a member? 
         NuxtLink( to="/sign-up" class="font-semibold hover:cursor-pointer text-green-700") Register now
-  div(class="hidden md:block lg:w-[55%] w-full h-full p-12")
+  div(class="hidden md:block lg:w-[55%] w-full h-[100dvh] p-12")
     nuxt-img(src="images/loginpage2.png" class="w-full h-full my-auto rounded-2xl object-cover" width="800" height="1000" format="webp")
 </template>
 
@@ -128,31 +128,4 @@ onMounted(() => {
 });
 </script>
 
-<style lang="sass">
-
-
-
-
-
-
-
-
-.full-width
-  width: 100vw
-  position: relative
-  left: 50%
-  right: 50%
-  margin-left: -50vw
-  margin-right: -50vw
-
-
-
-.advantage
-  opacity: 0
-
-.advantage-visible
-  opacity: 1
-
-.product
-  opacity: 0
-</style>
+<style lang="scss"></style>

@@ -1,5 +1,5 @@
 <template lang="pug">
-    div(id="clean" style="" class="theme-default h-auto flex flex-row bg-themeBackground justify-center items-start w-full  ")
+    div(id="clean" style="" class="theme-default h-auto flex flex-row bg-themeBackground justify-center items-start w-full   ")
         div#overlay(class="absolute overlaying top-0 left-0 w-full h-screen bg-black opacity-40 z-10 hidden-overlay")
           Sidebar(class="" )
         
@@ -22,7 +22,7 @@ const router = useRouter();
 const route = useRoute();
 
 const sendEmail = () => {
-  document.location = "mailto:graphicdesigner@gmail.com";
+  // document.location = "mailto:graphicdesigner@gmail.com";
 };
 
 onMounted(() => {});
